@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
     //id 'kotlin-parcelize'
     id 'kotlin-android-extensions'
+
+    id 'com.google.gms.google-services'
 }
 
 //native app key 숨겨서 사용하는 법
@@ -51,6 +53,13 @@ android {
 }
 
 dependencies {
+
+    //파이어베이스
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+
 
     implementation "com.kakao.sdk:v2-all:2.12.0" // 전체 모듈 설치, 2.11.0 버전부터 지원
     implementation "com.kakao.sdk:v2-user:2.12.0" // 카카오 로그인
