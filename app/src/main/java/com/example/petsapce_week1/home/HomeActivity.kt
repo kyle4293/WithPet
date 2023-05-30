@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
                             .commitAllowingStateLoss()
                     }
                     R.id.menu_main_btm_nav_heart -> {
-                        val isLogin = LoginCheck()
+                        /*val isLogin = LoginCheck()
                         if(isLogin){
                             supportFragmentManager.beginTransaction()
                                 .replace(R.id.main_frm, PlaceToGoFragment())
@@ -45,7 +45,10 @@ class HomeActivity : AppCompatActivity() {
                             supportFragmentManager.beginTransaction()
                                 .replace(R.id.main_frm, NoLoginPlacetogoFragment())
                                 .commitAllowingStateLoss()
-                        }
+                        }*/
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_frm, NoLoginPlacetogoFragment())
+                            .commitAllowingStateLoss()
                     }
                     R.id.menu_main_btm_nav_reserve -> {
                         supportFragmentManager.beginTransaction()

@@ -29,6 +29,7 @@ import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import kotlinx.android.synthetic.main.activity_login.editTextPassword
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -146,7 +147,7 @@ class LoginActivity : AppCompatActivity() {
         }
          */
 
-        binding.btnKakao.setOnClickListener {
+        binding.btnGoogle.setOnClickListener {
             googleLogin()
         }
 
