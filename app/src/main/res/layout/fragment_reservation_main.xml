@@ -31,23 +31,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_main"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTop"
-        />
 
-    <androidx.viewpager2.widget.ViewPager2
 
-        android:id="@+id/vp_Main"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

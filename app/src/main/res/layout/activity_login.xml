@@ -142,19 +142,27 @@
                 android:textSize="16sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_kakao"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:drawableLeft="@drawable/icons8_google"
+                android:paddingLeft="20dp"
+                android:paddingRight="43dp"
+                android:id="@+id/btn_google"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16dp"
+                android:textColor="@color/textForBlack"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="48sp"
-                android:layout_marginTop="33dp"
-                android:background="@drawable/btn_customfull"
-                android:backgroundTint="@color/kakao"
-                android:drawableLeft="@drawable/icons8_kakaotalk"
-                android:paddingLeft="20dp"
-                android:paddingRight="40dp"
-                android:text="카카오로 로그인"
-                android:textColor="@color/textForBlack"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:foreground="@drawable/btn_google"
+                android:text="Google로 로그인"
+                android:textAllCaps="false"
+
+                />
+
+
+
 
 
             <LinearLayout

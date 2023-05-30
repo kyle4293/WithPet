@@ -43,27 +43,10 @@ class PlaceToGoFragment : Fragment() {
 
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
-        val img = arrayOf(
-            R.drawable.menu1,
-            R.drawable.frame_busan,
-            R.drawable.menu2,
-            R.drawable.menu8,
-            R.drawable.menu5,
-            R.drawable.menu4,
-            R.drawable.menu6,
-            R.drawable.menu7,
-        )
+
         getAccessToken()
-        val fragmentManager = (activity as AppCompatActivity).supportFragmentManager
         if(accessToken != null){
-            val gridVew = binding.placeGridview
-            gridVew.adapter =
-                tcontext?.let { PlaceGridAdapter(parentFragmentManager, it, accessToken = accessToken!!, img_list = img) }
-            //adapter = tcontext?.let { PlaceGridAdapter(it, img, accessToken!!) }!!
-//            binding.placeGridview.adapter =
-//                tcontext?.let { PlaceGridAdapter(context = requireContext(), accessToken = accessToken!!, img_list = img) }
-            //binding.placeGridview.adapter = adapter
-            Log.d("함께 갈 곳", "안비었음, ${img}")
+
         }
         else{
             Log.d("함께 갈 곳", "비었음")
