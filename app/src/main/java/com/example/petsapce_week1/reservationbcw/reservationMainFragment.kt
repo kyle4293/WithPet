@@ -20,7 +20,7 @@ class reservationMainFragment : Fragment() {
     ): View? {
         binding = FragmentReservationMainBinding.inflate(layoutInflater)
 
-        val mainVPAdapter = MainVPAdapter(this)
+       /* val mainVPAdapter = MainVPAdapter(this)
         binding.vpMain.adapter = mainVPAdapter //viewpager연동완료
 
         binding.vpMain.isUserInputEnabled = false
@@ -33,7 +33,7 @@ class reservationMainFragment : Fragment() {
 
         TabLayoutMediator(binding.tabMain,binding.vpMain){tab,position->
             tab.text = tabTitleArray[position]
-        }.attach()
+        }.attach()*/
 
 
 
