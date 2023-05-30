@@ -44,7 +44,12 @@ class PlaceToGoFragment : Fragment() {
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
 
-        getAccessToken()
+
+
+
+
+
+       /* getAccessToken()
         if(accessToken != null){
 
         }
@@ -62,7 +67,7 @@ class PlaceToGoFragment : Fragment() {
         //adapter = PlaceToGoRegionAdapter(dataList)
         //        binding.recyclerviewMain.adapter = adapter
         //        binding.recyclerviewMain.isNestedScrollingEnabled = true
-//        adapter = context?.let { accessToken?.let { it1 -> PlaceGridAdapter(it, img, it1) } }!!
+//        adapter = context?.let { accessToken?.let { it1 -> PlaceGridAdapter(it, img, it1) } }!!*/
 
         return binding.root
     }

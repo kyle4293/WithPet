@@ -61,7 +61,8 @@ class AccMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //홈화면 리사이클러뷰에서 넘어감
-        val roomBeforeID  = intent.getIntExtra("content",-1)
+//        val roomBeforeID  = intent.getIntExtra("content",-1)
+        val roomBeforeID  = 1
         Log.d("roomBeforeID",roomBeforeID.toString())
 
 

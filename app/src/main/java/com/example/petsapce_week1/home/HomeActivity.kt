@@ -16,15 +16,16 @@ import com.example.petsapce_week1.reservation.ReservationFragment
 import com.example.petsapce_week1.reservationbcw.reservationMainFragment
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityHomeBinding
-    var accessToken : String ?= null
+    private lateinit var binding: ActivityHomeBinding
+    var accessToken: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+        supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment())
+            .commitAllowingStateLoss()
 
         binding.mainBtmNav.run {
             setOnItemSelectedListener { item ->
@@ -34,28 +35,32 @@ class HomeActivity : AppCompatActivity() {
                             .replace(R.id.main_frm, HomeFragment())
                             .commitAllowingStateLoss()
                     }
+                    //찜화면 (유빈) /2번째 화면
                     R.id.menu_main_btm_nav_heart -> {
-                        /*val isLogin = LoginCheck()
-                        if(isLogin){
-                            supportFragmentManager.beginTransaction()
-                                .replace(R.id.main_frm, PlaceToGoFragment())
-                                .commitAllowingStateLoss()
-                        }
-                        else{
-                            supportFragmentManager.beginTransaction()
-                                .replace(R.id.main_frm, NoLoginPlacetogoFragment())
-                                .commitAllowingStateLoss()
-                        }*/
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, NoLoginPlacetogoFragment())
+                            .replace(R.id.main_frm, PlaceToGoFragment())
                             .commitAllowingStateLoss()
+                        /*  val isLogin = LoginCheck()
+                          if(isLogin){
+                              supportFragmentManager.beginTransaction()
+                                  .replace(R.id.main_frm, PlaceToGoFragment())
+                                  .commitAllowingStateLoss()
+                          }
+                          else{
+                              supportFragmentManager.beginTransaction()
+                                  .replace(R.id.main_frm, NoLoginPlacetogoFragment())
+                                  .commitAllowingStateLoss()
+                          }*/
+
                     }
+                    //이용권 화면 (유빈) / 3번째 화면
                     R.id.menu_main_btm_nav_reserve -> {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, reservationMainFragment())
                             .commitAllowingStateLoss()
                         Log.d("예약 화면 switch", "dd")
                     }
+
                     R.id.menu_main_btm_nav_profile -> {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, ProfileMenuFragment())
@@ -68,15 +73,15 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+
     fun LoginCheck(): Boolean {
-        val isLogin : Boolean
+        val isLogin: Boolean
         getAccessToken()
 
-        if(accessToken != "default") {
+        if (accessToken != "default") {
             isLogin = true
             return isLogin
-        }
-        else{
+        } else {
             Log.d("함께 갈 곳", "비었음")
             isLogin = false
             return isLogin
@@ -85,9 +90,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun getAccessToken() {
         val atpref = getSharedPreferences("accessToken", MODE_PRIVATE)
-        if(atpref != null){
+        if (atpref != null) {
             accessToken = atpref.getString("accessToken", "default")
         }
-        Log.d("홈 화면 accessToken11","$accessToken")
+        Log.d("홈 화면 accessToken11", "$accessToken")
     }
 }
