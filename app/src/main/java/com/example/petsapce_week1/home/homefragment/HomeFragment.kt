@@ -12,6 +12,7 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentHomeBinding
 import com.example.petsapce_week1.home.HomeResearchActivity
 import com.example.petsapce_week1.network.RetrofitHelperHome
@@ -72,9 +73,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         //네트워크 통신
 
         //버튼정렬
-        initButton()
+//        initButton()
         //스피너정렬
-        initSpinner()
+//        initSpinner()
+        //데이터
+        initData()
         //리사이클러뷰
         initRecyclerView()
         //다음페이지
@@ -201,7 +204,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         }*/
 
 
-                        dataList.add(
+                      /*  dataList.add(
                             HomeMainData(
                                 childataList,
                                 usersSort.result[i].averageReviewScore,
@@ -213,7 +216,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
                             )
 
-                        )
+                        )*/
                     }
 
                     adapter.items = dataList
@@ -234,6 +237,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
 
+    private fun initData(){
+        dataList.add(HomeMainData(R.drawable.imgcoffee2,"로우커피스탠드","카페, 성수동", 4.50))
+        dataList.add(HomeMainData(R.drawable.imgcaat4x,"로우커피스탠드2","카페, 성수동", 4.50))
+        dataList.add(HomeMainData(R.drawable.imgforest4x,"로우커피스탠드3","카페, 성수동", 4.50))
+        dataList.add(HomeMainData(R.drawable.home2,"경주 숙소","숙소, 경주", 3.25))
+
+    }
+
+
     private fun initRecyclerView() {
 
         //기존 adapter(recyclerview adpater)
@@ -246,20 +258,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.recyclerviewMain.isNestedScrollingEnabled = true
 
 
-        /*    adapter.itemClickListener = object : HomeMainAdapter.OnItemClickListener {
-                override fun OnItemClick(data: HomeMainData) {
-                    val intent = Intent(context, Home2Activity::class.java)
-                    intent.putExtra("price", data.price)
-    //                intent.putExtra("data", data)
-                    startActivity(intent)
-
-                    Log.d("test", "test")
-                }
-
-
-            }*/
 
     }
+
 
 
     fun initButton() {
