@@ -74,10 +74,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         //버튼정렬
 //        initButton()
-        //스피너정렬
-//        initSpinner()
         //데이터
         initData()
+        //스피너정렬
+        initSpinner()
         //리사이클러뷰
         initRecyclerView()
         //다음페이지
@@ -94,12 +94,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.b1.id -> {
-                buttonCheck = btn1House
-                updateTripple(page,spinnerCheck,buttonCheck)
+                adapter.sortAscending()
+               /* buttonCheck = btn1House
+                updateTripple(page,spinnerCheck,buttonCheck)*/
             }
             binding.b2.id -> {
-                buttonCheck = btn2Campsite
-                updateTripple(page,spinnerCheck,buttonCheck)
+                adapter.sortDescending()
+             /*   buttonCheck = btn2Campsite
+                updateTripple(page,spinnerCheck,buttonCheck)*/
             }
             binding.b3.id -> {
                 buttonCheck = btn3Downtown
@@ -136,12 +138,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 )
                 when (spinner.getItemAtPosition(position)) {
                     "최근등록순" -> {
-                        spinnerCheck = sortDefault
-                        updateTripple(page,spinnerCheck,buttonCheck)
+                        adapter.sortAscending()
+                     /*   spinnerCheck = sortDefault
+                        updateTripple(page,spinnerCheck,buttonCheck)*/
                     }
                     "높은가격순" -> {
-                        spinnerCheck = sortPriceAsc
-                        updateTripple(page,spinnerCheck,buttonCheck)
+                        adapter.sortDescending()
+                      /*  spinnerCheck = sortPriceAsc
+                        updateTripple(page,spinnerCheck,buttonCheck)*/
                     }
                     "낮은가격순" -> {
                         spinnerCheck = sortPriceDesc
@@ -156,14 +160,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         updateTripple(page,spinnerCheck,buttonCheck)
                     }
                     else -> {
-                        spinnerCheck = sortDefault
-                        updateTripple(page,spinnerCheck,buttonCheck)
+                        adapter.sortAscending()
+
+                      /*  spinnerCheck = sortDefault
+                        updateTripple(page,spinnerCheck,buttonCheck)*/
                     }
                 }
             }
         }
 
     }
+
+
+
 
 
     //삼중 정렬

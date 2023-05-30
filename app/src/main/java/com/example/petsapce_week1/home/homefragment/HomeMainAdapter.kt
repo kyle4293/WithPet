@@ -29,6 +29,26 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
 //        fun onClick(v: View, position: Int)
     }
 
+    //오름 차순 정렬
+    fun sortAscending() {
+        items.sortBy { it.score }
+        notifyDataSetChanged()
+    }
+
+    // 내림 차순 정렬
+    fun sortDescending() {
+        items.sortByDescending { it.score }
+        notifyDataSetChanged()
+    }
+
+    fun filterByText(query: String) {
+        val filteredList = items.filter { it.name.contains(query) }
+        items.clear()
+        items.addAll(filteredList)
+        notifyDataSetChanged()
+    }
+
+
 
     var itemClickListener: OnItemClickListener? = null //초기값 null값
 
