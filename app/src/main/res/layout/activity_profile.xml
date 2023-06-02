@@ -15,6 +15,7 @@
         android:scaleType="centerCrop" />
 
     <TextView
+        android:text="프로필이 없습니다."
         android:id="@+id/profile_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
         android:textColor="@android:color/black" />
 
     <TextView
+        android:text="로그인을 해주세요."
         android:id="@+id/profile_email_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
