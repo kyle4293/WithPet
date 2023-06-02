@@ -1,7 +1,9 @@
 package com.example.petsapce_week1.home.homefragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,13 +11,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.petsapce_week1.ProfileActivity
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentHomeBinding
 import com.example.petsapce_week1.home.HomeResearchActivity
 import com.example.petsapce_week1.loginrelated.LoginActivity
+import com.example.petsapce_week1.loginrelated.MyApplication
 import com.example.petsapce_week1.network.RetrofitHelperHome
 import com.example.petsapce_week1.network.homeAPI
 import com.example.petsapce_week1.vo.HomeResponse
@@ -72,8 +77,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         viewModel = ViewModelProvider(this).get(SortViewModel::class.java)
 
 
-        //네트워크 통신
-
         //데이터
         initData()
         //버튼정렬
@@ -87,12 +90,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
         //로그인 (임시)
         initLogin()
 
-//        initButtonSort()
-//        initAddData()
+
 
         // Inflate the layout for this fragment
         return binding.root
     }
+
+    private fun initLoginCheck() {
+
+    }
+
+    // 로그인 여부를 체크하는 함수
+
+
 
     //버튼 정렬
     override fun onClick(v: View?) {
@@ -323,13 +333,23 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.btnSearch.setOnClickListener {
             val intent = Intent(context, HomeResearchActivity::class.java)
             startActivity(intent)
+
         }
     }
 
     private fun initLogin() {
+        MyApplication()
+        val loginCheck = MyApplication.prefs.getString("name", "null")
         binding.ticket.setOnClickListener {
-            val intent = Intent(context, LoginActivity::class.java)
-            startActivity(intent)
+            Log.d("loginCheck", loginCheck.toString())
+            if (loginCheck == "null"){
+                val intent = Intent(context, LoginActivity::class.java)
+                startActivity(intent)
+            }
+            else{
+                val intent = Intent(context, ProfileActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 

@@ -1,29 +1,24 @@
 package com.example.petsapce_week1.loginrelated
 
 
-import android.R
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petsapce_week1.GifActivity
 import com.example.petsapce_week1.R.*
 import com.example.petsapce_week1.Signin4Activity
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 
 @Suppress("DEPRECATION")
@@ -37,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
     // FirebaseAuth 의 인스턴스를 선언
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var myApplication:MyApplication
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +41,9 @@ class LoginActivity : AppCompatActivity() {
 
         // onCreate() 메서드에서 FirebaseAuth 인스턴스를 초기화시키기
         firebaseAuth = FirebaseAuth.getInstance()
+
+        //myAppliacation 초기화(로그인 정보 저장)
+        myApplication = MyApplication()
 
 
         // 로그인 기능
@@ -80,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
         val signInButton = findViewById<Button>(id.btn_google)
         signInButton.setOnClickListener {
             signIn()
+
         }
 
     }
@@ -91,8 +91,11 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // 로그인 성공
                     val user = FirebaseAuth.getInstance().currentUser
+                    val name = user?.displayName.toString()
+                    // 기기에 로그인 정보 저장
+                    MyApplication.prefs.setString("name", name)
                     // 로그인 성공 후 수행할 작업 추가
-                    navigateToNextScreen()
+                    navigateToNextScreen(name)
                 } else {
                     // 로그인 실패
                     Toast.makeText(this, "로그인 실패: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -128,22 +131,29 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Firebase 인증이 성공한 경우 사용자가 로그인한 것으로 처리합니다.
                     val user = firebaseAuth.currentUser
+                    val name = user?.displayName.toString()
+                    //기기에 로그인 정보 저장
+                    MyApplication.prefs.setString("name", name)
+
                     // 사용자 정보를 처리하거나 다음 화면으로 이동합니다.
-                    navigateToNextScreen()
+                    navigateToNextScreen(name)
                 } else {
                     // Firebase 인증이 실패한 경우 에러 처리를 수행합니다.
                     Log.e(TAG, "Firebase authentication failed", task.exception)
+
                 }
             }
     }
 
-    private fun navigateToNextScreen() {
+    private fun navigateToNextScreen(user: String) {
         // 다음 화면으로 전환하는 코드를 작성합니다.
         val intent = Intent(this, GifActivity::class.java)
+        intent.putExtra("userName", user)
+
         startActivity(intent)
+
         finish() // 현재 액티비티를 종료하여 뒤로가기 버튼을 눌렀을 때 로그인 화면으로 돌아가지 않도록 합니다.
     }
-
 
 
 

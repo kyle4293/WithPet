@@ -7,31 +7,23 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-<!--    <uses-permission android:name="android.permission.CAMERA" />-->
-
 
     <application
-        android:name=".loginrelated.GlobalApplictation"
+        android:name=".loginrelated.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetSapce_week1"
         android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
-        <activity
-            android:name=".placetogo.PlaceToGoRegionActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".home.HomeResearchActivity"
             android:exported="false">
@@ -40,9 +32,9 @@
                 android:value="" />
         </activity> <!-- 홈 내비게이션 액티비티 ===================================================================================== -->
         <activity
-            android:parentActivityName=".home.HomeResearchActivity"
             android:name=".home.Home2Activity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".home.HomeResearchActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -50,7 +42,6 @@
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -111,12 +102,7 @@
             android:name=".reviewrelated.ReviewReadMoreActivity"
             android:exported="true" />
         <activity android:name=".reviewrelated.ReviewPhotosActivity" /> <!-- 테스트옹 홈 화면 ================================ -->
-
-
-        <activity
-            android:name=".ProfileActivity" />
-
-
+        <activity android:name=".ProfileActivity" />
         <activity
             android:name=".TestMainActivity"
             android:exported="true" /> <!-- ================프로필 화면 & 설정 화면 ============= -->
@@ -137,33 +123,30 @@
             </intent-filter>
             -->
         </activity> <!-- 카카오 로그인 화면 뜨는거 -->
-<!--        <activity-->
-<!--            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"-->
-<!--            android:exported="true"-->
-<!--            android:launchMode="singleTask">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.VIEW" />-->
-
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--                <category android:name="android.intent.category.BROWSABLE" />-->
-
-<!--                &lt;!&ndash; Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" &ndash;&gt;-->
-<!--&lt;!&ndash;                <data&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:host="oauth"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:scheme="@string/kakao_oauth_host"&ndash;&gt;-->
-<!--&lt;!&ndash;                    tools:ignore="AppLinkUrlError" />&ndash;&gt;-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!-- <activity -->
+        <!-- android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity" -->
+        <!-- android:exported="true" -->
+        <!-- android:launchMode="singleTask"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+        <!-- &lt;!&ndash; Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" &ndash;&gt; -->
+        <!-- &lt;!&ndash;                <data&ndash;&gt; -->
+        <!-- &lt;!&ndash;                    android:host="oauth"&ndash;&gt; -->
+        <!-- &lt;!&ndash;                    android:scheme="@string/kakao_oauth_host"&ndash;&gt; -->
+        <!-- &lt;!&ndash;                    tools:ignore="AppLinkUrlError" />&ndash;&gt; -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".review.ReviewPostActivity"
             android:exported="true" />
 
         <provider
-            android:authorities="com.example.PetSapce_week1"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.PetSapce_week1"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />

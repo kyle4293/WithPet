@@ -113,6 +113,7 @@
                 android:visibility="invisible" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/btn_email"
                 android:layout_width="match_parent"
                 android:layout_height="48sp"
@@ -120,9 +121,11 @@
                 android:background="@drawable/btn_customfull"
                 android:backgroundTint="@color/main_green"
                 android:text="이메일로 로그인"
-                android:textColor="#EEF5F5"
-                android:textSize="16dp"
-                android:textStyle="bold"
+                android:textColor="@color/textForBlack"
+                android:textSize="16sp"
+                android:focusable="true"
+                android:clickable="true"
+                android:fontFamily="@font/roboto_medium"
 
                 />
 
@@ -151,7 +154,7 @@
                 android:paddingRight="43dp"
                 android:id="@+id/btn_google"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/textForBlack"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
