@@ -21,6 +21,7 @@ import com.example.petsapce_week1.network.LoginService
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.vo.EmailCheckResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,20 +30,6 @@ import java.net.URLEncoder
 import java.util.regex.Pattern
 
 class Signin4Activity : AppCompatActivity() {
-//    lateinit var binding: ActivitySignin2Binding
-//    lateinit var viewModel: EmailViewModel
-//
-//    // ========== 백엔드 연동 부분 ===========
-//    private var retrofit: Retrofit = RetrofitHelper.getRetrofitInstance()
-//    var api : LoginService = retrofit.create(LoginService::class.java)
-//
-//    //비밀번호 입력 담는 지역 변수(올바른 형식으로 초기화 안할시 처음 화면에서 빨간불 들어옴)
-//    lateinit var passwordInput: String
-//
-//    var flagEmail = 0
-//    var flagPassword = 0
-//    var flagEqual = 0
-//    var flagButton = 0
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -60,21 +47,25 @@ class Signin4Activity : AppCompatActivity() {
             val emailEditText = findViewById<EditText>(R.id.editText_email)
             val passwordEditText = findViewById<EditText>(R.id.editText_password)
             val confirmPasswordEditText = findViewById<EditText>(R.id.editText_password_again)
+            val nameEditText = findViewById<EditText>(R.id.editText_name)
+
 
 
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmPasswordEditText.text.toString()
+            val name = nameEditText.text.toString()
 
 
-            signUpWithEmail(email, password, confirmPassword)
+            signUpWithEmail(email, password, confirmPassword, name)
         }
 
     }
 
     // 이메일과 비밀번호로 회원가입하는 함수
     // 회원가입 함수
-    private fun signUpWithEmail(email: String, password: String, confirmPassword: String) {
+    // 회원가입 함수
+    private fun signUpWithEmail(email: String, password: String, confirmPassword: String, name: String) {
         // 비밀번호 확인
         if (password != confirmPassword) {
             // 비밀번호가 일치하지 않는 경우
@@ -88,9 +79,23 @@ class Signin4Activity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // 회원가입 성공
                     val user = FirebaseAuth.getInstance().currentUser
-                    // 회원가입 성공 후 수행할 작업 추가
-                    navigateToNextScreen()
 
+                    // 사용자 이름 저장
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(name)
+                        .build()
+
+                    user?.updateProfile(profileUpdates)
+                        ?.addOnCompleteListener { updateTask ->
+                            if (updateTask.isSuccessful) {
+                                // 사용자 이름 저장 성공
+                                // 회원가입 성공 후 수행할 작업 추가
+                                navigateToNextScreen()
+                            } else {
+                                // 사용자 이름 저장 실패
+                                Toast.makeText(this, "사용자 이름 저장 실패", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 } else {
                     // 회원가입 실패
                     Toast.makeText(this, "회원가입 실패: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

@@ -59,8 +59,8 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:backgroundTint="#F9F9F9"
             android:background="@drawable/circle"
@@ -76,21 +76,21 @@
             android:paddingBottom="13dp">
 
             <TextView
-                android:id="@+id/tv_profile_nickname"
+                android:id="@+id/profile_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_regular"
-                android:text="우주댕댕이"
+                android:text="이름"
                 android:textColor="#0C201E"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tv_profile_signupdate"
+                android:id="@+id/profile_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_regular"
                 android:paddingTop="5dp"
-                android:text="2022년 가입"
+                android:text="이메일"
                 android:textColor="#0C201E"
                 android:textSize="12sp" />
         </LinearLayout>
