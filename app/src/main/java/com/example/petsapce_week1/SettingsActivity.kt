@@ -16,6 +16,7 @@ import com.example.petsapce_week1.network.AccomoService
 import com.example.petsapce_week1.network.LoginService
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.vo.ReservationReadResponse
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +24,7 @@ import retrofit2.Retrofit
 
 class SettingsActivity : AppCompatActivity() {
     lateinit var binding : ActivitySettingsBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     var accessToken : String ?= null
     var accommoList = ArrayList<ReservationReadResponse.Reservation>()
@@ -40,6 +42,9 @@ class SettingsActivity : AppCompatActivity() {
     var api : LoginService = retrofit.create(LoginService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -49,39 +54,13 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
-            getAccessToken()
-            accessToken?.let { it1 ->
-                api.userLogout(accessToken = it1).enqueue(object :
-                    Callback<LogoutBackendResponse> {
-                    override fun onResponse(
-                        call: Call<LogoutBackendResponse>,
-                        response: Response<LogoutBackendResponse>
-                    ) {
-                        Log.d("로그아웃", response.toString())
-                        Log.d("로그아웃", response.body().toString())
-                        val prefAccessToken : SharedPreferences = getSharedPreferences("accessToken", MODE_PRIVATE)
-                        val prefRefreshToken : SharedPreferences = getSharedPreferences("refreshToken", MODE_PRIVATE)
-                        val editAT : SharedPreferences.Editor  = prefAccessToken.edit()
-                        val editRT : SharedPreferences.Editor = prefRefreshToken.edit()
-                        editAT.clear()
-                        editRT.clear()
-                        editAT.commit()
-                        editRT.commit()
+            // Firebase 인증 로그아웃
+            FirebaseAuth.getInstance().signOut()
 
-                        getAccessToken()
-                        Log.d("로그아웃 그 이후..", accessToken.toString())
-                        Toast.makeText(this@SettingsActivity, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show()
-
-                        val intent2 = Intent(this@SettingsActivity, HomeActivity::class.java)
-                        startActivity(intent2)
-                    }
-
-                    override fun onFailure(call: Call<LogoutBackendResponse>, t: Throwable) {
-                        Log.d("로그아웃 실패", t.toString())
-                    }
-
-                })
-            }
+            // 로그아웃 후 원하는 화면으로 전환
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
