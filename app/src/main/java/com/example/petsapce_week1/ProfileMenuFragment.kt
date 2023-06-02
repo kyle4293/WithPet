@@ -20,9 +20,13 @@ class ProfileMenuFragment : Fragment() {
 
     }
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+
         binding = FragmentProfileMenuBinding.inflate(layoutInflater)
 
         binding.btnSettings.setOnClickListener {
@@ -34,10 +38,17 @@ class ProfileMenuFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.imageButton.setOnClickListener {
-            val intent = Intent(context, LoginActivity::class.java)
+//        binding.imageButton.setOnClickListener {
+//            val intent = Intent(context, LoginActivity::class.java)
+//            startActivity(intent)
+//        }
+
+        binding.linearLayout.setOnClickListener {
+            val intent = Intent(context,ProfileActivity::class.java)
             startActivity(intent)
         }
+
+//        binding.tvProfileNickname.text = ProfileActivity.name
 
 
         return binding.root

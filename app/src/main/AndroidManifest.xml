@@ -111,6 +111,12 @@
             android:name=".reviewrelated.ReviewReadMoreActivity"
             android:exported="true" />
         <activity android:name=".reviewrelated.ReviewPhotosActivity" /> <!-- 테스트옹 홈 화면 ================================ -->
+
+
+        <activity
+            android:name=".ProfileActivity" />
+
+
         <activity
             android:name=".TestMainActivity"
             android:exported="true" /> <!-- ================프로필 화면 & 설정 화면 ============= -->
