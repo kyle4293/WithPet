@@ -1,6 +1,5 @@
 package com.example.petsapce_week1.home
 
-//import com.example.petsapce_week1.home.homefragment.HomeFragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +8,7 @@ import com.example.petsapce_week1.ProfileMenuFragment
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.ActivityHomeBinding
 import com.example.petsapce_week1.home.homefragment.HomeFragment
-import com.example.petsapce_week1.home.homefragment.ReserveFragment
-import com.example.petsapce_week1.placetogo.NoLoginPlacetogoFragment
 import com.example.petsapce_week1.placetogo.PlaceToGoFragment
-import com.example.petsapce_week1.reservation.ReservationFragment
 import com.example.petsapce_week1.reservationbcw.reservationMainFragment
 
 class HomeActivity : AppCompatActivity() {

@@ -1,28 +1,25 @@
 package com.example.petsapce_week1.home.homefragment
 
 import android.annotation.SuppressLint
-import android.content.ClipData
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import com.example.petsapce_week1.R
 import com.example.petsapce_week1.accommodation.AccMainActivity
 import com.example.petsapce_week1.databinding.HomeMainRowBinding
-import com.example.petsapce_week1.databinding.HomeMainRowChildBinding
-import com.example.petsapce_week1.vo.HomeResponse
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+
 /*import kotlinx.android.synthetic.main.activity_acc_main.view.*
 import kotlinx.android.synthetic.main.home_main_row.view.**/
-import java.text.DecimalFormat
+
+
 
 class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
     RecyclerView.Adapter<HomeMainAdapter.ViewHolder>() {
+
+    val sortPriceDesc = "PRICE_ASC"
+    val sortPriceAsc = "PRICE_DESC"
+
 
     interface OnItemClickListener {
         fun OnItemClick(data: HomeMainData)
@@ -30,17 +27,20 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
     }
 
     //오름 차순 정렬
+    @SuppressLint("NotifyDataSetChanged")
     fun sortAscending() {
         items.sortBy { it.score }
         notifyDataSetChanged()
     }
 
     // 내림 차순 정렬
+    @SuppressLint("NotifyDataSetChanged")
     fun sortDescending() {
         items.sortByDescending { it.score }
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun filterByText(query: String) {
         val filteredList = items.filter { it.name.contains(query) }
         items.clear()
@@ -48,6 +48,20 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
         notifyDataSetChanged()
     }
 
+
+    fun filterAndSortByText(query: String, sortOrder: String) {
+        val filteredList = items.filter { it.name.contains(query) }
+        val sortedList = when (sortOrder) {
+            "PRICE_ASC" -> filteredList.sortedBy { it.score }
+            "PRICE_DESC" -> filteredList.sortedByDescending { it.score }
+            else -> {
+                filteredList
+            }
+        }
+        items.clear()
+        items.addAll(sortedList)
+        notifyDataSetChanged()
+    }
 
 
     var itemClickListener: OnItemClickListener? = null //초기값 null값

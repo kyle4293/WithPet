@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua"
-        android:text="[반려동물이름]과 어디로 떠날까요?"
+        android:text="펫과 어디로 떠날까요?"
         android:textColor="@color/textForBlack"
         android:textSize="20sp"
        />
@@ -76,17 +76,17 @@
             />
 -->
         <EditText
-            android:imeOptions="actionDone"
-            android:maxLength="10"
-            android:hint="어느 지역으로 가시나요?"
-            android:singleLine = "true"
-            android:lines = "1"
-            android:ems="10"
-            android:background="@null"
             android:id="@+id/text_where_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="어디로 놀러 가시나요?"
+            android:imeOptions="actionDone"
+            android:lines="1"
+            android:maxLength="10"
+            android:singleLine="true"
             android:textColor="@color/textForBlack"
             android:textColorHint="#7F7F7F"
             android:textSize="16sp"
@@ -131,6 +131,7 @@
         app:selectedDotColor="@color/main_green" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
@@ -172,6 +173,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
         android:layout_marginTop="15dp"
         android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
