@@ -50,26 +50,6 @@ class PlaceToGoFragment : Fragment() {
 
 
 
-       /* getAccessToken()
-        if(accessToken != null){
-
-        }
-        else{
-            Log.d("함께 갈 곳", "비었음")
-
-//            val fragmentManager = (activity as AppCompatActivity).supportFragmentManager
-//            val fragmentTransaction = fragmentManager.beginTransaction()
-//            val newFragment = NoLoginPlacetogoFragment()
-//            fragmentTransaction.replace(R.id.placetogoLayout, newFragment)
-//            fragmentTransaction.addToBackStack(null)
-//            fragmentTransaction.commit()
-        }
-
-        //adapter = PlaceToGoRegionAdapter(dataList)
-        //        binding.recyclerviewMain.adapter = adapter
-        //        binding.recyclerviewMain.isNestedScrollingEnabled = true
-//        adapter = context?.let { accessToken?.let { it1 -> PlaceGridAdapter(it, img, it1) } }!!*/
-
         return binding.root
     }
 
