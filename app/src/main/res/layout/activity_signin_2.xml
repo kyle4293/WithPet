@@ -11,8 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-       >
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/btn_back"
@@ -27,10 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bmjua"
+            android:gravity="center"
             android:text="회원가입"
             android:textColor="#0C201E"
             android:textSize="20dp"
-            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,151 +46,157 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
 
         <TextView
-            android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#0C201E"
-            android:textSize="16sp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/pretendard_regular"
             android:text="이메일"
-            android:layout_marginBottom="20dp"
-            />
+            android:textColor="#0C201E"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:orientation="horizontal">
 
-        <EditText
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_marginRight="5dp"
-            android:paddingLeft="20dp"
-            android:background="@drawable/btn_emailbox"
-            android:id="@+id/editText_email"
+            <EditText
+                android:id="@+id/editText_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_emailbox"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="이메일을 입력해주세요"
+                android:paddingLeft="20dp"
+                android:textColor="#7F7F7F"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <TextView
             android:layout_width="wrap_content"
-            android:hint="이메일"
-            android:textSize="16sp"
-            android:fontFamily="@font/pretendard_regular"
             android:layout_height="wrap_content"
-            android:textColor="#7F7F7F"
-            />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="이름"
+            android:textColor="#0C201E"
+            android:textSize="16sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:clickable="true"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/email_duplication_after"
-                android:backgroundTint="@color/main_green"
-                android:background="@drawable/btn_customfull"
-                android:fontFamily="@font/pretendard_semibold"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="중복 확인"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                 />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_emailbox"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="이름을 입력해주세요"
+                android:paddingLeft="20dp"
+                android:textColor="#7F7F7F"
+                android:textSize="16sp" />
 
 
+        </LinearLayout>
 
-    </LinearLayout>
         <TextView
             android:id="@+id/text_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
             android:layout_marginTop="5dp"
-            android:textSize="12sp"
+            android:text=""
             android:textColor="#40A196"
-            />
+            android:textSize="12sp" />
 
         <TextView
-            android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#0C201E"
-            android:textSize="16sp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/pretendard_regular"
-            android:text="비밀번호"/>
+            android:text="비밀번호"
+            android:textColor="#0C201E"
+            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="false"
             android:layout_marginTop="20dp"
-            app:passwordToggleEnabled="true"
             app:endIconDrawable="@drawable/custom_password_eye"
             app:endIconMode="password_toggle"
-            >
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:paddingLeft="20dp"
-            android:background="@drawable/btn_custom"
-            android:textSize="16sp"
-            android:fontFamily="@font/pretendard_regular"
-            android:id="@+id/editText_password"
-            android:layout_width="match_parent"
-            android:hint="비밀번호"
-            android:textColor="#7F7F7F"
-            android:layout_height="48sp"
-            android:inputType="textPassword"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_password"
+                android:layout_width="match_parent"
+                android:layout_height="48sp"
+                android:background="@drawable/btn_custom"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:textColor="#7F7F7F"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="영문, 숫자, 특수문자 포함 8자 이상을 입력해주세요."
             android:layout_marginTop="5dp"
-            android:textSize="12sp"
+            android:text="영문, 숫자, 특수문자 포함 8자 이상을 입력해주세요."
             android:textColor="#40A196"
-            />
+            android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
             android:layout_marginTop="15dp"
-            app:hintEnabled="false"
             app:endIconDrawable="@drawable/custom_password_eye"
             app:endIconMode="password_toggle"
-            >
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true">
 
-        <EditText
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:paddingLeft="20dp"
-            android:background="@drawable/btn_custom"
-            android:textSize="16sp"
-            android:fontFamily="@font/pretendard_regular"
-            android:id="@+id/editText_password_again"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:hint="비밀번호 확인"
-            android:textColor="#7F7F7F"
-            android:layout_height="48sp"
-            android:inputType="textPassword"
-            />
+            <EditText
+                android:id="@+id/editText_password_again"
+                android:layout_width="match_parent"
+                android:layout_height="48sp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_custom"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="비밀번호 확인"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:textColor="#7F7F7F"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/text_passwordAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
             android:layout_marginTop="5dp"
-            android:textSize="12sp"
+            android:text=""
             android:textColor="#40A196"
-            />
-
-
-
+            android:textSize="12sp" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -199,19 +204,18 @@
             android:layout_height="match_parent">
 
 
-<!--            버튼 selector로 구현 -->
-<!--      android:background="@drawable/click_button"
--->
+            <!--            버튼 selector로 구현 -->
+            <!--      android:background="@drawable/click_button"
+            -->
             <androidx.appcompat.widget.AppCompatButton
 
-                android:clickable="true"
-                android:enabled="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="50dp"
                 android:id="@+id/btnContinue_after"
                 android:layout_width="match_parent"
                 android:layout_height="48sp"
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/click_button"
+                android:clickable="true"
+                android:enabled="true"
                 android:fontFamily="@font/roboto_medium"
                 android:paddingLeft="20dp"
                 android:paddingRight="43dp"
@@ -219,6 +223,7 @@
                 android:textAllCaps="false"
                 android:textColor="#EEF5F5"
                 android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:layout_editor_absoluteX="20dp"
 
                 />
