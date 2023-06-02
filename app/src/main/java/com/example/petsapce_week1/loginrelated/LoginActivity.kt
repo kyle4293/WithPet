@@ -8,11 +8,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petsapce_week1.GifActivity
 import com.example.petsapce_week1.R.*
+import com.example.petsapce_week1.Signin4Activity
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -43,6 +45,28 @@ class LoginActivity : AppCompatActivity() {
         // onCreate() 메서드에서 FirebaseAuth 인스턴스를 초기화시키기
         firebaseAuth = FirebaseAuth.getInstance()
 
+
+        // 로그인 기능
+        val loginBtn = findViewById<Button>(id.btn_email)
+        loginBtn.setOnClickListener {
+            // 이메일 로그인 버튼 클릭 시 실행되는 코드
+            val emailEditText = findViewById<EditText>(id.editText_email)
+            val passwordEditText = findViewById<EditText>(id.editTextPassword)
+
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            signInWithEmail(email, password)
+        }
+
+        //  회원가입 기능
+        val joinBtn = findViewById<TextView>(id.btn_newAccount)
+        joinBtn.setOnClickListener {
+            val intent = Intent(this@LoginActivity, Signin4Activity::class.java)
+            startActivity(intent)
+        }
+
+
         // Google 로그인 구성
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(string.default_web_client_id))
@@ -57,6 +81,22 @@ class LoginActivity : AppCompatActivity() {
             signIn()
         }
 
+    }
+
+    // 이메일과 비밀번호로 로그인하는 함수
+    private fun signInWithEmail(email: String, password: String) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // 로그인 성공
+                    val user = FirebaseAuth.getInstance().currentUser
+                    // 로그인 성공 후 수행할 작업 추가
+                    navigateToNextScreen()
+                } else {
+                    // 로그인 실패
+                    Toast.makeText(this, "로그인 실패: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun signIn() {
