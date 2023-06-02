@@ -12,6 +12,7 @@ import com.example.petsapce_week1.databinding.ActivitySettingsBinding
 import com.example.petsapce_week1.home.HomeActivity
 import com.example.petsapce_week1.home.homefragment.ProfileFragment
 import com.example.petsapce_week1.loginrelated.LogoutBackendResponse
+import com.example.petsapce_week1.loginrelated.MyApplication
 import com.example.petsapce_week1.network.AccomoService
 import com.example.petsapce_week1.network.LoginService
 import com.example.petsapce_week1.network.RetrofitHelper
@@ -54,8 +55,12 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
+            Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show()
             // Firebase 인증 로그아웃
             FirebaseAuth.getInstance().signOut()
+
+            // 기기에 로그인 정보 삭제
+            MyApplication.prefs.clearLoginInfo()
 
             // 로그아웃 후 원하는 화면으로 전환
             val intent = Intent(this, HomeActivity::class.java)
