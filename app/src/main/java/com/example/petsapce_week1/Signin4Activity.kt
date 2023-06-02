@@ -49,6 +49,9 @@ class Signin4Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setContentView(R.layout.activity_signin_2)
+
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         val joinBtn = findViewById<Button>(R.id.btnContinue_after)
