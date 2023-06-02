@@ -60,14 +60,14 @@
             android:textSize="16sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="48sp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/btn_emailbox"
                 android:focusable="true"
@@ -87,25 +87,25 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/pretendard_regular"
-            android:text="이름"
+            android:text="닉네임"
             android:textColor="#0C201E"
             android:textSize="16sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="48sp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/btn_emailbox"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/pretendard_regular"
-                android:hint="이름을 입력해주세요"
+                android:hint="닉네임을 입력해주세요"
                 android:paddingLeft="20dp"
                 android:textColor="#7F7F7F"
                 android:textSize="16sp" />
@@ -125,7 +125,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/pretendard_regular"
             android:text="비밀번호"
             android:textColor="#0C201E"
@@ -204,10 +204,10 @@
             android:layout_height="match_parent">
 
 
-            <!--            버튼 selector로 구현 -->
-            <!--      android:background="@drawable/click_button"
-            -->
             <androidx.appcompat.widget.AppCompatButton
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/btnContinue_after"
                 android:layout_width="match_parent"
                 android:layout_height="48sp"
@@ -216,15 +216,12 @@
                 android:clickable="true"
                 android:enabled="true"
                 android:fontFamily="@font/roboto_medium"
-                android:paddingLeft="20dp"
-                android:paddingRight="43dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="회원가입"
                 android:textAllCaps="false"
                 android:textColor="#EEF5F5"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:layout_editor_absoluteX="20dp"
-
+                android:textSize="16sp"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
