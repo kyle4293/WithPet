@@ -44,6 +44,7 @@ class PlaceToGoFragment : Fragment() {
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
 
+        binding.textHostname.text =
 
 
 

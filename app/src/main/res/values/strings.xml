@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">PetSpace</string>
+    <string name="app_name">WithPet</string>
     <string name="createId"><u>계정 새로 만들기</u></string>
     <string name="more"><u>더보기</u></string>
 
+<!--    <string name="default_web_client_id">988570535680-9966l32h6relolv7knosv9k063reikch.apps.googleusercontent.com</string>-->
+    <!-- Login -->
+    <string name="success_login">로그인 성공</string>
+    <string name="failed_login"><u>로그인 실패</u></string>
+    <string name="success_logout"><u>로그아웃</u></string>
 
     <!-- Main -->
     <string name="main_btm_nav_home_title">홈</string>
