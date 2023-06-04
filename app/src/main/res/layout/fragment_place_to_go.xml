@@ -46,7 +46,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_togoList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:paddingHorizontal="20dp">
 
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
