@@ -12,8 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentPlaceToGoBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class PlaceToGoFragment : Fragment() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     lateinit var binding : FragmentPlaceToGoBinding
 
@@ -37,14 +40,19 @@ class PlaceToGoFragment : Fragment() {
     }
 
     override fun onCreateView(
+
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+        val name = user?.displayName
 
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
 
-        binding.textHostname.text =
+        binding.textHostname.text = name+"님의 찜 목록"
 
 
 
