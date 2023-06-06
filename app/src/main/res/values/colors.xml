@@ -17,4 +17,6 @@
 
     <color name="sunday_color">#BB2649</color>
     <color name="saturday_color">#2662BB</color>
+    <color name="textForBlue">#54AEFF</color>
+    <color name="lemonYellow">#FEFF86</color>
 </resources>

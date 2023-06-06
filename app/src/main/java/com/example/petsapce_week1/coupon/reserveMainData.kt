@@ -1,4 +1,4 @@
-import com.example.petsapce_week1.reservationbcw.reserveChildData
+import com.example.petsapce_week1.coupon.reserveChildData
 import java.io.Serializable
 
 data class reserveMainData(

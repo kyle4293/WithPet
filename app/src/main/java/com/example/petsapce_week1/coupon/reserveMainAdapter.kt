@@ -1,4 +1,4 @@
-package com.example.petsapce_week1.reservationbcw
+package com.example.petsapce_week1.coupon
 
 import android.annotation.SuppressLint
 import android.content.Intent

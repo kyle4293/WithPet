@@ -1,4 +1,4 @@
-package com.example.petsapce_week1.reservationbcw
+package com.example.petsapce_week1.coupon
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,11 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petsapce_week1.databinding.FragmentLeftBinding
-import com.example.petsapce_week1.home.homefragment.HomeChildData
-import com.example.petsapce_week1.home.homefragment.HomeMainData
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.network.homeAPI
-import com.example.petsapce_week1.vo.Home2Response
 import com.example.petsapce_week1.vo.HomeResponse
 import reserveMainData
 import retrofit2.Call

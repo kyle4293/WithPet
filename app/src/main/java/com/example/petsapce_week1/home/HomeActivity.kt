@@ -6,10 +6,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petsapce_week1.ProfileMenuFragment
 import com.example.petsapce_week1.R
+import com.example.petsapce_week1.coupon.CouponFragment
 import com.example.petsapce_week1.databinding.ActivityHomeBinding
 import com.example.petsapce_week1.home.homefragment.HomeFragment
 import com.example.petsapce_week1.placetogo.PlaceToGoFragment
-import com.example.petsapce_week1.reservationbcw.reservationMainFragment
+import com.example.petsapce_week1.coupon.reservationMainFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -52,7 +53,7 @@ class HomeActivity : AppCompatActivity() {
                     //이용권 화면 (유빈) / 3번째 화면
                     R.id.menu_main_btm_nav_reserve -> {
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, reservationMainFragment())
+                            .replace(R.id.main_frm, CouponFragment())
                             .commitAllowingStateLoss()
                         Log.d("예약 화면 switch", "dd")
                     }

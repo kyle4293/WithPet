@@ -1,4 +1,4 @@
-package com.example.petsapce_week1.reservationbcw
+package com.example.petsapce_week1.coupon
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

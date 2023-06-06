@@ -1,4 +1,4 @@
-package com.example.petsapce_week1.reservationbcw
+package com.example.petsapce_week1.coupon
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.ReservationMainRowChildBinding
-import com.example.petsapce_week1.vo.FacilityData
 
 class reserveChildAdapter(private val items: ArrayList<reserveChildData>) : RecyclerView.Adapter<reserveChildAdapter.ChildViewHolder>() {
 
