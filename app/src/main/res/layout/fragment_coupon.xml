@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/placetogoLayout"
-    tools:context=".placetogo.PlaceToGoFragment"
     android:orientation="vertical">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:padding="20dp"
@@ -22,10 +17,10 @@
 
 
         <TextView
-            android:id="@+id/text_hostname"
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000 님의 찜 목록"
+            android:text="할인 중인 이용권"
             android:fontFamily="@font/bmjua"
             android:textSize="20sp"
             android:textColor="@color/textForBlack"
@@ -40,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#D9D9D9" />
+
     <LinearLayout
         android:id="@+id/menu_layout"
         android:layout_width="match_parent"
@@ -47,7 +43,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_togoList"
+            android:id="@+id/recyclerview_coupon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
@@ -56,6 +52,4 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
 </LinearLayout>
-

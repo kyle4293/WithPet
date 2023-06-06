@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentPlaceToGoBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,9 @@ class PlaceToGoFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     lateinit var binding : FragmentPlaceToGoBinding
+    lateinit var adapter: ToGoAdapter
+
+    var dataList = ArrayList<ToGoData>()
 
     private var tcontext: Context ?= null
 
@@ -51,14 +55,26 @@ class PlaceToGoFragment : Fragment() {
 
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
-
-        binding.textHostname.text = name+"님의 찜 목록"
-
-
-
-
-
+        initData()
+        initRecyclerView()
         return binding.root
+    }
+
+    private fun initData() {
+        dataList.add(ToGoData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50))
+        dataList.add(ToGoData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50))
+        dataList.add(ToGoData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50))
+        dataList.add(ToGoData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25))
+    }
+    private fun initRecyclerView(){
+
+            //기존 adapter(recyclerview adpater)
+            binding.recyclerviewTogoList.layoutManager = LinearLayoutManager(
+                requireContext(), LinearLayoutManager.VERTICAL, false
+            )
+            adapter = ToGoAdapter(dataList)
+            binding.recyclerviewTogoList.adapter = adapter
+            binding.recyclerviewTogoList.isNestedScrollingEnabled = true
     }
 
 }
