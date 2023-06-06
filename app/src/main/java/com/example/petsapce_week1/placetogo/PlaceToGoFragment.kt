@@ -55,16 +55,18 @@ class PlaceToGoFragment : Fragment() {
 
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
-        initData()
+        initData(name)
         initRecyclerView()
         return binding.root
     }
 
-    private fun initData() {
+    private fun initData(name: String?) {
         dataList.add(ToGoData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50))
         dataList.add(ToGoData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50))
         dataList.add(ToGoData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50))
         dataList.add(ToGoData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25))
+
+        binding.textHostname.text = name + "님의 찜 목록"
     }
     private fun initRecyclerView(){
 
