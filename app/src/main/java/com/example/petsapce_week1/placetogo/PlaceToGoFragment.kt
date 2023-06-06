@@ -13,12 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentPlaceToGoBinding
-import com.example.petsapce_week1.home.Home2MainAdapter
-import com.example.petsapce_week1.home.Home2MainData
-import com.example.petsapce_week1.home.homefragment.HomeMainAdapter
-import com.example.petsapce_week1.home.homefragment.HomeMainData
+import com.google.firebase.auth.FirebaseAuth
 
 class PlaceToGoFragment : Fragment() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     lateinit var binding : FragmentPlaceToGoBinding
     lateinit var adapter: ToGoAdapter
@@ -45,9 +44,14 @@ class PlaceToGoFragment : Fragment() {
     }
 
     override fun onCreateView(
+
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+        val name = user?.displayName
 
         binding = FragmentPlaceToGoBinding.inflate(layoutInflater)
 
@@ -61,7 +65,6 @@ class PlaceToGoFragment : Fragment() {
         dataList.add(ToGoData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50))
         dataList.add(ToGoData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50))
         dataList.add(ToGoData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25))
-
     }
     private fun initRecyclerView(){
 
