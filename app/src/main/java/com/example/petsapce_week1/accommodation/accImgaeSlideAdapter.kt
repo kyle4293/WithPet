@@ -17,18 +17,7 @@ class accImgaeSlideAdapter(val items: ArrayList<imageSlideData>) : RecyclerView.
     var itemClickListener: OnItemClickListener? = null //초기값 null값
 
     inner class ViewHolder(val binding: AccMainImageslideBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.imgMain.setOnClickListener {
-                itemClickListener?.OnItemClick(items[adapterPosition].imgSlide) //?는 null일 수 도 있다고 알려주는 역할
-                //itemClickListener?.OnItemClick(items[adapterPosition])
-                /* val intent = Intent(this,detailPageActivity::class.java)
-                 startActivity(intent)*/
-                Log.d("숙소 touch3","touch")
-
-            }
-        }
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =

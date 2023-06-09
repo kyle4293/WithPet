@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.example.petsapce_week1.ProfileMenuFragment
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.accommodation.scroll.AccFacilityMoreActivity
 import com.example.petsapce_week1.accommodation.scroll.googleFragment
@@ -21,11 +20,9 @@ import com.example.petsapce_week1.network.LoginService
 import com.example.petsapce_week1.network.ReservationAPI
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.vo.FacilityData
-import com.example.petsapce_week1.vo.FavoriteBackendResponse
 import com.example.petsapce_week1.vo.ReservationCreateResponse
 import com.example.petsapce_week1.vo.ReservationUserData
 import com.example.petsapce_week1.vo.accomo_datamodel.AccomodationData
-import com.example.petsapce_week1.vo.accomo_datamodel.AccomodationRoomData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -90,6 +87,7 @@ class AccMainActivity : AppCompatActivity() {
         // bindingHostBinding = ActivityAccHostBinding.bind(binding.frameHost.root)
 
         initViewPager()
+        initData()
 
         //val data = AccomodationRoomData(roomId = null)
 //        val roomId : Long = intent.getLongExtra("content", -1)
@@ -174,7 +172,7 @@ class AccMainActivity : AppCompatActivity() {
                     binding.textStarscore.text = body.result.roomAverageScore.toString()
                     binding.textReviewcount.text = "${body.result.reviewCount}개"
 
-                    for (item in body.result.roomImageUrls) {
+          /*          for (item in body.result.roomImageUrls) {
                         imgdataList.apply {
                             add(
                                 imageSlideData(
@@ -189,7 +187,7 @@ class AccMainActivity : AppCompatActivity() {
                                 imgdataList[i].imgSlide
                             )
                         )
-                    }
+                    }*/
 
                     Log.d("숙소","${body.result.roomImageUrls}")
                     Log.d("숙소","$photos")
@@ -302,6 +300,17 @@ class AccMainActivity : AppCompatActivity() {
 
             })
         }
+    }
+
+    private fun initData() {
+        imgdataList.add(imageSlideData(R.drawable.home2))
+        imgdataList.add(imageSlideData(R.drawable.map))
+        imgdataList.add(imageSlideData(R.drawable.home2))
+        imgdataList.add(imageSlideData(R.drawable.map))
+        imgdataList.add(imageSlideData(R.drawable.home2))
+        imgdataList.add(imageSlideData(R.drawable.map))
+        imgdataList.add(imageSlideData(R.drawable.home2))
+        imgdataList.add(imageSlideData(R.drawable.map))
     }
 
     private fun initViewPager() {

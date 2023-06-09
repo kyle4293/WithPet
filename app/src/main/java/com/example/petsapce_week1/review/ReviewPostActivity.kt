@@ -12,7 +12,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.petsapce_week1.TestMainActivity
 import com.example.petsapce_week1.databinding.ReviewCreateBinding
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.network.ReviewAPI
