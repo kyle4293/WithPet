@@ -11,7 +11,6 @@ import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.petsapce_week1.TestMainActivity
 import com.example.petsapce_week1.databinding.ReviewCreateBinding
 import com.example.petsapce_week1.network.RetrofitHelper
 import com.example.petsapce_week1.network.ReviewAPI
@@ -63,7 +62,7 @@ class ReviewPostActivity_orig : AppCompatActivity() {
         })
 
         // 이전 버튼
-        initPrevious()
+//        initPrevious()
 
         // 별점 정수로 환산
         binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, _ ->
@@ -206,14 +205,14 @@ class ReviewPostActivity_orig : AppCompatActivity() {
     }
 
     // 이전 화면
-    fun initPrevious() {
+/*    fun initPrevious() {
         binding.apply {
             btnBack.setOnClickListener {
                 val intent = Intent(this@ReviewPostActivity_orig, TestMainActivity::class.java)
                 startActivity(intent)
             }
         }
-    }
+    }*/
 
     private fun String?.toPlainRequestBody() =
         requireNotNull(this).toRequestBody("text/plain".toMediaTypeOrNull())

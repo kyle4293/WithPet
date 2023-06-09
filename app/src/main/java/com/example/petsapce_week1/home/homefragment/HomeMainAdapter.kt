@@ -123,11 +123,17 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
            val adapter = HomeChildAdapter(items[position].imgList)
            viewPager.adapter = adapter
            springDotsIndicator.attachTo(viewPager)*/
-//        val roomIDNext = items[position].roomID
+        val img = items[position].imgList
+        val name = items[position].name
+        val location = items[position].location
+        val score = items[position].score
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView?.context, AccMainActivity::class.java)
-//            intent.putExtra("content", roomIDNext)
+            val intent = Intent(holder.itemView.context, AccMainActivity::class.java)
+            intent.putExtra("img", img)
+            intent.putExtra("name", name)
+            intent.putExtra("location", location)
+            intent.putExtra("score", score)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
 //            Log.d("content", roomIDNext.toString())
         }
