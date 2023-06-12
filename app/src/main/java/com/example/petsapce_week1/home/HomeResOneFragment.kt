@@ -48,26 +48,26 @@ class HomeResOneFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.b1.id -> {
-                viewModel.plusValue("서울")
+                viewModel.plusValue("카페")
 //                viewModel.setText("서울")
 
             }
             binding.b2.id -> {
-                viewModel.plusValue("제주")
+                viewModel.plusValue("식당")
 
             }
             binding.b3.id -> {
-                viewModel.plusValue("춘천")
+                viewModel.plusValue("공원")
 
             }
             binding.b4.id -> {
-                viewModel.plusValue("속초")
+                viewModel.plusValue("미용")
             }
             binding.b5.id -> {
-                viewModel.plusValue("전주")
+                viewModel.plusValue("병원")
             }
             binding.b6.id -> {
-                viewModel.plusValue("부산")
+                viewModel.plusValue("숙박")
             }
         }
     }
