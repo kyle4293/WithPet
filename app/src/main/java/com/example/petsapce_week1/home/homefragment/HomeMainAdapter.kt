@@ -2,16 +2,13 @@ package com.example.petsapce_week1.home.homefragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.accommodation.AccMainActivity
 import com.example.petsapce_week1.databinding.HomeMainRowBinding
-
-/*import kotlinx.android.synthetic.main.activity_acc_main.view.*
-import kotlinx.android.synthetic.main.home_main_row.view.**/
-
 
 
 class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
@@ -128,15 +125,28 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
         val location = items[position].location
         val score = items[position].score
 
+
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, AccMainActivity::class.java)
+
             intent.putExtra("img", img)
             intent.putExtra("name", name)
             intent.putExtra("location", location)
             intent.putExtra("score", score)
+//            intent.putParcelableArrayListExtra("score", homeMainData)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
 //            Log.d("content", roomIDNext.toString())
         }
+
+        /*val item = items[position]
+        val intent = Intent(holder.itemView.context, AccMainActivity::class.java).apply {
+            putExtra("img", item.imgList)
+            putExtra("name", item.name)
+            putExtra("location", item.location)
+            putExtra("score", item.score)
+        }
+        ContextCompat.startActivity(holder.itemView.context, intent, null)*/
+
 
 
 //        holder.childViewPager.adapter = HomeChildViewPagerAdapter(items[position].imgList)
