@@ -3,8 +3,10 @@ package com.example.petsapce_week1.calendar
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -64,8 +66,16 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 
+        var isClicked = true
         holder.itemView.setOnClickListener {
 
+            if (isClicked) {
+                holder.binding.clCalendarItem.setBackgroundColor(Color.parseColor("#B0DAFF"))
+                isClicked = false
+            } else {
+                holder.binding.clCalendarItem.setBackgroundResource(R.drawable.calendar_item_background)
+                isClicked = true
+            }
         }
 
 
