@@ -1,35 +1,20 @@
 package com.example.petsapce_week1.calendar
 
 import android.annotation.SuppressLint
-import android.content.ClipData
-import android.content.Intent
-import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import com.example.petsapce_week1.R
-import com.example.petsapce_week1.accommodation.AccMainActivity
 import com.example.petsapce_week1.databinding.CalendarItemBinding
-import com.example.petsapce_week1.databinding.Home2MainRowBinding
-import com.example.petsapce_week1.databinding.HomeMainRowBinding
-import com.example.petsapce_week1.databinding.HomeMainRowChildBinding
-import com.example.petsapce_week1.home.Home2ChildAdapter
 import com.example.petsapce_week1.home.Home2MainData
-import com.example.petsapce_week1.home.homefragment.HomeChildAdapter
-import com.example.petsapce_week1.home.homefragment.HomeMainData
-import com.example.petsapce_week1.vo.HomeResponse
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
-//import kotlinx.android.synthetic.main.activity_acc_main.view.*
-//import kotlinx.android.synthetic.main.home_main_row.view.*
-import java.text.DecimalFormat
 
+@Suppress("DEPRECATION")
 class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
     RecyclerView.Adapter<CalendarMainAdapter.ViewHolder>() {
+
+    private var selectedItemPosition = RecyclerView.NO_POSITION
+
 
     interface OnItemClickListener {
         fun OnItemClick(data: Home2MainData)
@@ -50,6 +35,32 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
                 tvDateCalendarItem.text = data.date
                 tvDayCalendarItem.text = data.day
 
+                if (adapterPosition == selectedItemPosition) {
+                    clCalendarItem.isSelected = true
+                    tvDateCalendarItem.setTextColor( ContextCompat.getColor(
+                        itemView.context,
+                        R.color.white
+                    ))
+
+                } else {
+                    clCalendarItem.isSelected = false
+                    tvDateCalendarItem.setTextColor( ContextCompat.getColor(
+                        itemView.context,
+                        R.color.textForGray
+                    ))
+
+                }
+
+                clCalendarItem.setOnClickListener {
+                    // 기존에 선택된 아이템의 선택 상태 해제
+                    if (selectedItemPosition != RecyclerView.NO_POSITION) {
+                        notifyItemChanged(selectedItemPosition)
+                    }
+
+                    // 현재 아이템 선택
+                    selectedItemPosition = adapterPosition
+                    notifyItemChanged(selectedItemPosition)
+                }
             }
 
         }
@@ -64,20 +75,6 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-
-        var isClicked = true
-        holder.itemView.setOnClickListener {
-
-            if (isClicked) {
-                holder.binding.clCalendarItem.setBackgroundColor(Color.parseColor("#B0DAFF"))
-                isClicked = false
-            } else {
-                holder.binding.clCalendarItem.setBackgroundResource(R.drawable.calendar_item_background)
-                isClicked = true
-            }
-        }
-
 
 
         holder.bind(items[position])
