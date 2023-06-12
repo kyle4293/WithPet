@@ -65,7 +65,8 @@ dependencies {
     // Also add the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
-
+    implementation 'org.parceler:parceler-api:1.1.12'
+    kapt 'org.parceler:parceler:1.1.12'
 
 
     implementation "com.kakao.sdk:v2-all:2.12.0" // 전체 모듈 설치, 2.11.0 버전부터 지원
