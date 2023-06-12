@@ -306,6 +306,7 @@ class AccMainActivity : AppCompatActivity() {
         val name = intent.getStringExtra("name")
         val location = intent.getStringExtra("location")
         val score = intent.getDoubleExtra("score", 0.0)
+        val price = intent.getStringExtra("price")
         imgdataList.add(imageSlideData(img))
         binding.apply {
 

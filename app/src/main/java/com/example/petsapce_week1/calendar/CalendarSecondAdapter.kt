@@ -42,7 +42,6 @@ class CalendarSecondAdapter(var items: ArrayList<CalendarSecondData>) :
         fun bind(data: CalendarSecondData) {
 
             binding.apply {
-                textNumber.text = data.number.toString()
                 textDate.text = data.text
             }
 

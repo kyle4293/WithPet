@@ -42,7 +42,6 @@ class CalendarThirdAdapter(var items: ArrayList<CalendarThirdData>) :
         fun bind(data: CalendarThirdData) {
 
             binding.apply {
-                textNumber.text = data.number.toString()
                 textDate.text = data.text
             }
 
