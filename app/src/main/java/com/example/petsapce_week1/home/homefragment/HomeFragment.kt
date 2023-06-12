@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petsapce_week1.ProfileActivity
+import com.example.petsapce_week1.ProfileMenuActivity
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentHomeBinding
 import com.example.petsapce_week1.home.HomeResearchActivity
@@ -347,7 +348,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 startActivity(intent)
             }
             else{
-                val intent = Intent(context, ProfileActivity::class.java)
+                val intent = Intent(context, ProfileMenuActivity::class.java)
                 startActivity(intent)
             }
         }
