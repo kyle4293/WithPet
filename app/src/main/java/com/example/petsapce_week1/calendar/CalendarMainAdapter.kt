@@ -1,21 +1,29 @@
 package com.example.petsapce_week1.calendar
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.CalendarItemBinding
+import com.example.petsapce_week1.databinding.FragmentCalendarMainBinding
 import com.example.petsapce_week1.home.Home2MainData
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 @Suppress("DEPRECATION")
-class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
+class CalendarMainAdapter(var items: ArrayList<CalendarMainData>, private val fragmentBinding: FragmentCalendarMainBinding
+) :
     RecyclerView.Adapter<CalendarMainAdapter.ViewHolder>() {
 
 //    private var selectedItemPosition = RecyclerView.SCROLLBAR_POSITION_LEFT
     private var selectedItemPosition = RecyclerView.SCROLLBAR_POSITION_DEFAULT
+
+//    lateinit var fragmentBinding: FragmentCalendarMainBinding
+
 
 
     interface OnItemClickListener {
@@ -23,31 +31,22 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
 //        fun onClick(v: View, position: Int)
     }
 
-
-
     var itemClickListener: OnItemClickListener? = null //초기값 null값
-
 
     inner class ViewHolder(val binding: CalendarItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
 
+
         @SuppressLint("SetTextI18n")
         fun bind(data: CalendarMainData) {
 
+
             binding.apply {
+
                 tvDateCalendarItem.text = data.date
                 tvDayCalendarItem.text = data.day
-
-
-            /*    if (items[position] == items[0]) {
-                    clCalendarItem.isSelected = true
-                    tvDateCalendarItem.setTextColor( ContextCompat.getColor(
-                        itemView.context,
-                        R.color.white
-                    ))
-                } */
 
 
 
@@ -67,8 +66,6 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
 
                 }
 
-
-
                 clCalendarItem.setOnClickListener {
                     // 기존에 선택된 아이템의 선택 상태 해제
                     if (selectedItemPosition != RecyclerView.NO_POSITION) {
@@ -79,6 +76,21 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
                     selectedItemPosition = adapterPosition
                     notifyItemChanged(selectedItemPosition)
                 }
+                when (selectedItemPosition) {
+                    0 -> {
+                        fragmentBinding.recyclerview2.visibility = View.VISIBLE
+                    }
+                    1 -> {
+//                        Log.d("prrrrr",selectedItemPosition.toString())
+                        fragmentBinding.recyclerview2.visibility = View.GONE
+                        fragmentBinding.recyclerview3.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        fragmentBinding.recyclerview2.visibility = View.INVISIBLE
+                        fragmentBinding.recyclerview3.visibility = View.INVISIBLE
+                    }
+                }
+
 
             }
 

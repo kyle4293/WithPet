@@ -27,9 +27,11 @@ class CalendarMainFragment : Fragment() {
     private lateinit var binding: FragmentCalendarMainBinding
     var dataList = ArrayList<CalendarMainData>()
     var dataList2 = ArrayList<CalendarSecondData>()
+    var dataList3 = ArrayList<CalendarSecondData>()
 
     lateinit var adapter: CalendarMainAdapter
     lateinit var adapter2: CalendarSecondAdapter
+//    lateinit var adapter3: CalendarThirdAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,10 +44,47 @@ class CalendarMainFragment : Fragment() {
         initData()
         initRecyclerView2()
         initData2()
+        initRecyclerView3()
+        initData3()
 
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun initRecyclerView3() {
+        binding.recyclerview3.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.VERTICAL, false
+        )
+        adapter2 = CalendarSecondAdapter(dataList3)
+        binding.recyclerview3.adapter = adapter2
+
+        val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
+                adapter2.moveItem(viewHolder.adapterPosition, target.adapterPosition)
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                adapter2.removeItem(viewHolder.adapterPosition)
+            }
+
+        }
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerview3)
+    }
+
+
+    private fun initData3() {
+        for (i in 0 until 3)
+            dataList3.add(CalendarSecondData(i + 1, "09:00 댕댕냥냥"))
     }
 
     private fun initData2() {
@@ -98,7 +137,6 @@ class CalendarMainFragment : Fragment() {
 
             dataList.add(CalendarMainData(date, dayOfWeek))
 
-
             if (date == totalDays.toString())
                 break
             calendar.add(Calendar.DAY_OF_MONTH, 1)
@@ -115,7 +153,7 @@ class CalendarMainFragment : Fragment() {
         binding.recyclerview.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.HORIZONTAL, false
         )
-        adapter = CalendarMainAdapter(dataList)
+        adapter = CalendarMainAdapter(dataList,binding)
         binding.recyclerview.adapter = adapter
 
 
