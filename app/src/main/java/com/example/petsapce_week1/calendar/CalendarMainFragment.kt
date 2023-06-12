@@ -27,11 +27,11 @@ class CalendarMainFragment : Fragment() {
     private lateinit var binding: FragmentCalendarMainBinding
     var dataList = ArrayList<CalendarMainData>()
     var dataList2 = ArrayList<CalendarSecondData>()
-    var dataList3 = ArrayList<CalendarSecondData>()
+    var dataList3 = ArrayList<CalendarThirdData>()
 
     lateinit var adapter: CalendarMainAdapter
     lateinit var adapter2: CalendarSecondAdapter
-//    lateinit var adapter3: CalendarThirdAdapter
+    lateinit var adapter3: CalendarThirdAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,8 +56,8 @@ class CalendarMainFragment : Fragment() {
         binding.recyclerview3.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.VERTICAL, false
         )
-        adapter2 = CalendarSecondAdapter(dataList3)
-        binding.recyclerview3.adapter = adapter2
+        adapter3 = CalendarThirdAdapter(dataList3)
+        binding.recyclerview3.adapter = adapter3
 
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
@@ -68,12 +68,12 @@ class CalendarMainFragment : Fragment() {
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder,
             ): Boolean {
-                adapter2.moveItem(viewHolder.adapterPosition, target.adapterPosition)
+                adapter3.moveItem(viewHolder.adapterPosition, target.adapterPosition)
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter2.removeItem(viewHolder.adapterPosition)
+                adapter3.removeItem(viewHolder.adapterPosition)
             }
 
         }
@@ -84,7 +84,7 @@ class CalendarMainFragment : Fragment() {
 
     private fun initData3() {
         for (i in 0 until 3)
-            dataList3.add(CalendarSecondData(i + 1, "09:00 댕댕냥냥"))
+            dataList3.add(CalendarThirdData(i + 1, "13:00 리요리요 커피"))
     }
 
     private fun initData2() {
