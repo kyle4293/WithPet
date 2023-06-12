@@ -17,7 +17,6 @@
         android:layout_height="60dp">
 
 
-
         <TextView
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
@@ -49,14 +48,22 @@
         android:text="3월 2일"
         android:fontFamily="@font/pretendard_semibold"
         android:textColor="#7a7a7a"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:nestedScrollingEnabled="true"
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="15dp"
+        android:id="@+id/recyclerview2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

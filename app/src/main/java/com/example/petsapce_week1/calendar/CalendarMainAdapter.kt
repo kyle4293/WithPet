@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.CalendarItemBinding
@@ -13,13 +14,15 @@ import com.example.petsapce_week1.home.Home2MainData
 class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
     RecyclerView.Adapter<CalendarMainAdapter.ViewHolder>() {
 
-    private var selectedItemPosition = RecyclerView.NO_POSITION
+//    private var selectedItemPosition = RecyclerView.SCROLLBAR_POSITION_LEFT
+    private var selectedItemPosition = RecyclerView.SCROLLBAR_POSITION_DEFAULT
 
 
     interface OnItemClickListener {
-        fun OnItemClick(data: Home2MainData)
+        fun OnItemClick(data: CalendarMainData)
 //        fun onClick(v: View, position: Int)
     }
+
 
 
     var itemClickListener: OnItemClickListener? = null //초기값 null값
@@ -28,12 +31,25 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
     inner class ViewHolder(val binding: CalendarItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+
+
         @SuppressLint("SetTextI18n")
         fun bind(data: CalendarMainData) {
 
             binding.apply {
                 tvDateCalendarItem.text = data.date
                 tvDayCalendarItem.text = data.day
+
+
+            /*    if (items[position] == items[0]) {
+                    clCalendarItem.isSelected = true
+                    tvDateCalendarItem.setTextColor( ContextCompat.getColor(
+                        itemView.context,
+                        R.color.white
+                    ))
+                } */
+
+
 
                 if (adapterPosition == selectedItemPosition) {
                     clCalendarItem.isSelected = true
@@ -51,6 +67,8 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
 
                 }
 
+
+
                 clCalendarItem.setOnClickListener {
                     // 기존에 선택된 아이템의 선택 상태 해제
                     if (selectedItemPosition != RecyclerView.NO_POSITION) {
@@ -61,6 +79,7 @@ class CalendarMainAdapter(var items: ArrayList<CalendarMainData>) :
                     selectedItemPosition = adapterPosition
                     notifyItemChanged(selectedItemPosition)
                 }
+
             }
 
         }
