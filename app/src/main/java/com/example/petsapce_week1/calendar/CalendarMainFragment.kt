@@ -34,23 +34,12 @@ class CalendarMainFragment : Fragment() {
         initData()
 
 
-
         // Inflate the layout for this fragment
         return binding.root
     }
 
     private fun initData() {
-        /*dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))
-        dataList.add(CalendarMainData("1","월"))*/
+
         val calendar = Calendar.getInstance()
         //이번 달의 말일
         val totalDays = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -66,9 +55,10 @@ class CalendarMainFragment : Fragment() {
                 break
             calendar.add(Calendar.DAY_OF_MONTH, 1)
         }
-        binding.apply {
-            date.text = SimpleDateFormat("yyyy년 MM월 ", Locale.getDefault()).format(calendar.time)
-        }
+
+        binding.date.text =
+            SimpleDateFormat("yyyy년 MM월 ", Locale.getDefault()).format(calendar.time)
+
 
     }
 
