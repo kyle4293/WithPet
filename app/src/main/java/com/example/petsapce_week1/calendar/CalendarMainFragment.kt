@@ -84,12 +84,12 @@ class CalendarMainFragment : Fragment() {
 
     private fun initData3() {
         for (i in 0 until 3)
-            dataList3.add(CalendarThirdData(i + 1, "13:00 리요리요 커피"))
+            dataList3.add(CalendarThirdData( "09:00 댕댕냥냥"))
     }
 
     private fun initData2() {
         for (i in 0 until 30)
-            dataList2.add(CalendarSecondData(i + 1, "13:00 리요리요 커피"))
+            dataList2.add(CalendarSecondData( "13:00 리요리요 커피"))
 
     }
 

@@ -6,5 +6,5 @@ import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
 data class HomeMainData(
-    val imgList: Int, val name: String, val location: String, val score: Double
+    val imgList: Int, val name: String, val location: String, val score: Double, val price: Int
 ):Serializable

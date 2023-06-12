@@ -23,20 +23,32 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
 //        fun onClick(v: View, position: Int)
     }
 
-    //오름 차순 정렬
+    //평점 오름 차순 정렬
     @SuppressLint("NotifyDataSetChanged")
     fun sortAscending() {
         items.sortBy { it.score }
         notifyDataSetChanged()
     }
 
-    // 내림 차순 정렬
+
+    // 평점 내림 차순 정렬
     @SuppressLint("NotifyDataSetChanged")
     fun sortDescending() {
         items.sortByDescending { it.score }
         notifyDataSetChanged()
     }
 
+    fun sortAscendingPrice() {
+        items.sortBy { it.price }
+        notifyDataSetChanged()
+    }
+
+    fun sortDescendingPrice() {
+        items.sortByDescending { it.price }
+        notifyDataSetChanged()
+    }
+
+    //텍스트 검색
     @SuppressLint("NotifyDataSetChanged")
     fun filterByText(query: String) {
         val filteredList = items.filter { it.name.contains(query) }
@@ -84,12 +96,15 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
         @SuppressLint("SetTextI18n")
         fun bind(data: HomeMainData) {
             val cut = String.format("%.2f", data.score)
+            val formattedAmount = String.format("%,d", data.price)
+
 
             binding.apply {
                 image.setImageResource(data.imgList)
                 textName.text = data.name
                 textLoc.text = data.location
                 textScore.text = cut
+                Price.text = formattedAmount+"원"
 
             }
 
@@ -124,6 +139,7 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
         val name = items[position].name
         val location = items[position].location
         val score = items[position].score
+        val price = String.format("%,d", items[position].price)
 
 
         holder.itemView.setOnClickListener {
@@ -133,6 +149,7 @@ class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
             intent.putExtra("name", name)
             intent.putExtra("location", location)
             intent.putExtra("score", score)
+            intent.putExtra("price", price)
 //            intent.putParcelableArrayListExtra("score", homeMainData)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
 //            Log.d("content", roomIDNext.toString())

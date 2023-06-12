@@ -97,11 +97,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
-    private fun initLoginCheck() {
-
-    }
-
-    // 로그인 여부를 체크하는 함수
 
 
 
@@ -162,43 +157,41 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 )
                 when (spinner.getItemAtPosition(position)) {
                     "최근등록순" -> {
-                        spinnerCheck = sortPriceDesc
-                        filter(
-                            buttonCheck,
-                            sortPriceDesc
-                        )
 
-                        /*   spinnerCheck = sortDefault
-                           updateTripple(page,spinnerCheck,buttonCheck)*/
                     }
 
                     "높은가격순" -> {
-                        spinnerCheck = sortPriceDesc
+                        adapter.sortDescendingPrice()
+                       /* spinnerCheck = sortPriceDesc
                         filter(
                             buttonCheck,spinnerCheck
-                        )
+                        )*/
 
                         /*  spinnerCheck = sortPriceAsc
                           updateTripple(page,spinnerCheck,buttonCheck)*/
                     }
 
                     "낮은가격순" -> {
-                        spinnerCheck = sortPriceDesc
-                        updateTripple(page, spinnerCheck, buttonCheck)
+                        adapter.sortAscendingPrice()
+
+                       /* spinnerCheck = sortPriceDesc
+                        updateTripple(page, spinnerCheck, buttonCheck)*/
                     }
 
                     "평점높은순" -> {
-                        spinnerCheck = sortReviewScore
-                        updateTripple(page, spinnerCheck, buttonCheck)
+                        adapter.sortDescending()
+
+                        /*  spinnerCheck = sortReviewScore
+                          updateTripple(page, spinnerCheck, buttonCheck)*/
                     }
 
-                    "리뷰많은순" -> {
-                        spinnerCheck = sortReviewCount
-                        updateTripple(page, spinnerCheck, buttonCheck)
+                    "평점낮은순" -> {
+                        adapter.sortAscending()
+
                     }
 
                     else -> {
-                        adapter.sortAscending()
+//                        adapter.sortAscending()
 
                         /*  spinnerCheck = sortDefault
                           updateTripple(page,spinnerCheck,buttonCheck)*/
@@ -297,10 +290,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
 
     private fun initData() {
-        dataList.add(HomeMainData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50))
-        dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50))
-        dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50))
-        dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25))
+        dataList.add(HomeMainData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50, 10000))
+        dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50,30000))
+        dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50,40000))
+        dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25,10000))
 
     }
 
