@@ -36,8 +36,8 @@ class HomeActivity : AppCompatActivity() {
                     //찜화면 (유빈) /2번째 화면
                     R.id.menu_main_btm_nav_heart -> {
                         supportFragmentManager.beginTransaction()
-//                            .replace(R.id.main_frm, PlaceToGoFragment())
-                            .replace(R.id.main_frm, CalendarMainFragment())
+                            .replace(R.id.main_frm, PlaceToGoFragment())
+//                            .replace(R.id.main_frm, CalendarMainFragment())
                             .commitAllowingStateLoss()
                         /*  val isLogin = LoginCheck()
                           if(isLogin){
@@ -62,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
 
                     R.id.menu_main_btm_nav_profile -> {
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, ProfileMenuFragment())
+                            .replace(R.id.main_frm, CalendarMainFragment())
                             .commitAllowingStateLoss()
                     }
                 }
