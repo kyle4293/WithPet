@@ -103,9 +103,7 @@
             android:exported="true" />
         <activity android:name=".reviewrelated.ReviewPhotosActivity" /> <!-- 테스트옹 홈 화면 ================================ -->
         <activity android:name=".ProfileActivity" />
-        <activity
-            android:name=".TestMainActivity"
-            android:exported="true" /> <!-- ================프로필 화면 & 설정 화면 ============= -->
+        <!-- ================프로필 화면 & 설정 화면 ============= -->
         <activity android:name=".SettingsActivity" /> <!-- - splash 화면 -->
         <activity
             android:name=".SplashActivity"
@@ -141,6 +139,7 @@
         <activity
             android:name=".review.ReviewPostActivity"
             android:exported="true" />
+        <activity android:name=".ProfileMenuActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
