@@ -34,30 +34,6 @@ class Home2MainAdapter(var items: ArrayList<Home2MainData>) :
 
     var itemClickListener: OnItemClickListener? = null //초기값 null값
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun sortAscending() {
-        items.sortBy { it.score }
-        notifyDataSetChanged()
-    }
-
-
-    // 평점 내림 차순 정렬
-    @SuppressLint("NotifyDataSetChanged")
-    fun sortDescending() {
-        items.sortByDescending { it.score }
-        notifyDataSetChanged()
-    }
-
-    fun sortAscendingPrice() {
-        items.sortBy { it.price }
-        notifyDataSetChanged()
-    }
-
-    fun sortDescendingPrice() {
-        items.sortByDescending { it.price }
-        notifyDataSetChanged()
-    }
-
 
     inner class ViewHolder(val binding: Home2MainRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
