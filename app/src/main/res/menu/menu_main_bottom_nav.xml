@@ -20,7 +20,7 @@
 
     <item
         android:id="@+id/menu_main_btm_nav_reserve"
-        android:icon="@drawable/navreserve5x"
+        android:icon="@drawable/coupon"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"
@@ -29,8 +29,8 @@
 
 
     <item
-        android:id="@+id/menu_main_btm_nav_profile"
-        android:icon="@drawable/navprofile3x"
+        android:id="@+id/menu_main_btm_nav_timeLine"
+        android:icon="@drawable/navreserve5x"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_my_page_title" />

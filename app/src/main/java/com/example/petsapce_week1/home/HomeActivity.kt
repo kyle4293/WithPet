@@ -60,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
                         Log.d("예약 화면 switch", "dd")
                     }
 
-                    R.id.menu_main_btm_nav_profile -> {
+                    R.id.menu_main_btm_nav_timeLine -> {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, CalendarMainFragment())
                             .commitAllowingStateLoss()

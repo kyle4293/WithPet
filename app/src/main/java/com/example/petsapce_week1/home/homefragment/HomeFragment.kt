@@ -315,6 +315,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
         dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50,30000))
         dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50,40000))
         dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25,10000))
+        dataList.add(HomeMainData(R.drawable.item1, "호텔 카푸치노", "강남, 호텔", 4.50,110000))
+        dataList.add(HomeMainData(R.drawable.item2, "스타필드 하남", "하남, 쇼핑몰", 4.50,0))
+        dataList.add(HomeMainData(R.drawable.item3, "자매의부엌 어스", "신사, 식당", 4.50,25000))
+        dataList.add(HomeMainData(R.drawable.item4, "낙성대공원", "관악, 공원", 3.25,0))
+        dataList.add(HomeMainData(R.drawable.item5, "노스트레스버거", "용산, 식당", 3.25,6500))
+        dataList.add(HomeMainData(R.drawable.item6, "아이딜", "행운동, 카페", 3.25,4000))
+        dataList.add(HomeMainData(R.drawable.item7, "휴먼 앤 펫", "구래, 공방", 3.25,80000))
 
         originalDataList.addAll(dataList)
     }
