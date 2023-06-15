@@ -30,6 +30,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import java.util.Locale.filter
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -64,6 +65,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentHomeBinding
 
     var dataList = ArrayList<HomeMainData>()
+
+    val originalDataList = ArrayList<HomeMainData>()
     lateinit var adapter: HomeMainAdapter
     lateinit var spinner: Spinner
     lateinit var roomId: String
@@ -80,6 +83,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         //데이터
         initData()
+        getOriginalDataList()
         //버튼정렬
         initButton()
         //스피너정렬
@@ -99,13 +103,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
 
 
-
     //버튼 정렬
+    @SuppressLint("NotifyDataSetChanged")
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.b1.id -> {
-                buttonCheck = btn1House
-                filter(buttonCheck, spinnerCheck)
+              /*  adapter = HomeMainAdapter(dataList)
+                adapter.items = dataList
+                adapter.notifyDataSetChanged()*/
+
+                filterText("")
+//                adapter.sortDescendingPrice()
+
+//                buttonCheck = btn1House
+//                adapter.filterByText("숙소")
 
                 /* buttonCheck = btn1House
                  updateTripple(page,spinnerCheck,buttonCheck)*/
@@ -113,7 +124,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
             binding.b2.id -> {
                 buttonCheck = btn2Campsite
-                filter(buttonCheck, spinnerCheck)
+                filterText("카페")
 
 
                 /*   buttonCheck = btn2Campsite
@@ -121,21 +132,44 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             binding.b3.id -> {
-                buttonCheck = btn3Downtown
-                updateTripple(page, spinnerCheck, buttonCheck)
+                filterText("숙소")
+
+
+                /*   buttonCheck = btn3Downtown
+                   updateTripple(page, spinnerCheck, buttonCheck)*/
             }
 
             binding.b4.id -> {
-                buttonCheck = btn4Country
-                updateTripple(page, spinnerCheck, buttonCheck)
+                filterText("공원")
+
+           /*     buttonCheck = btn4Country
+                updateTripple(page, spinnerCheck, buttonCheck)*/
             }
 
             binding.b5.id -> {
-                buttonCheck = btn5Beach
-                updateTripple(page, spinnerCheck, buttonCheck)
+                filterText("미용")
+
+              /*  buttonCheck = btn5Beach
+                updateTripple(page, spinnerCheck, buttonCheck)*/
             }
         }
     }
+
+    fun priceSortDescending(){
+        dataList.sortByDescending { it.price }
+        adapter.items = dataList
+        adapter.notifyDataSetChanged()
+    }
+    fun filterText(query: String) {
+
+        val text = originalDataList.filter { it.location.contains(query) }
+        dataList.clear()
+        dataList.addAll(text)
+//        adapter.items = dataList
+        adapter.notifyDataSetChanged()
+    }
+
+
 
     //스피너 정렬
     private fun initSpinner() {
@@ -161,7 +195,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     }
 
                     "높은가격순" -> {
-                        adapter.sortDescendingPrice()
+                        priceSortDescending()
+//                        adapter.sortDescendingPrice()
                        /* spinnerCheck = sortPriceDesc
                         filter(
                             buttonCheck,spinnerCheck
@@ -202,20 +237,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     }
 
-    fun filter(query: String, sortOrder: String) {
-        val filteredList = dataList.filter { it.name.contains(query) }
-        val sortedList = when (sortOrder) {
-            "PRICE_ASC" -> filteredList.sortedBy { it.score }
-            "PRICE_DESC" -> filteredList.sortedByDescending { it.score }
-            else -> {
-                filteredList
-            }
-        }
-        dataList.clear()
-        dataList.addAll(sortedList)
-//        adapter.items = dataList
-        adapter.notifyDataSetChanged()
-    }
 
 
     //삼중 정렬
@@ -289,7 +310,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
 
-    private fun initData() {
+    fun initData() {
+        dataList.add(HomeMainData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50, 10000))
+        dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50,30000))
+        dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50,40000))
+        dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25,10000))
         dataList.add(HomeMainData(R.drawable.item1, "호텔 카푸치노", "강남, 호텔", 4.50,110000))
         dataList.add(HomeMainData(R.drawable.item2, "스타필드 하남", "하남, 쇼핑몰", 4.50,0))
         dataList.add(HomeMainData(R.drawable.item3, "자매의부엌 어스", "신사, 식당", 4.50,25000))
@@ -298,6 +323,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         dataList.add(HomeMainData(R.drawable.item6, "아이딜", "행운동, 카페", 3.25,4000))
         dataList.add(HomeMainData(R.drawable.item7, "휴먼 앤 펫", "구래, 공방", 3.25,80000))
 
+        originalDataList.addAll(dataList)
+    }
+
+    fun getOriginalDataList(): List<HomeMainData> {
+        return originalDataList
     }
 
 
