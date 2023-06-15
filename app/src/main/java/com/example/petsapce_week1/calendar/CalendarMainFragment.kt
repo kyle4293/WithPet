@@ -83,15 +83,14 @@ class CalendarMainFragment : Fragment() {
 
 
     private fun initData3() {
-        dataList3.add(CalendarThirdData("09:00 댕댕냥냥"))
-        dataList3.add(CalendarThirdData("12:00 노스트레스 버거"))
-        dataList3.add(CalendarThirdData("16:00 낙성대 공원"))
-        dataList3.add(CalendarThirdData("22:00 신라 호텔"))
+        dataList3.add(CalendarThirdData("댕댕냥냥, 카페 서초구"))
+        dataList3.add(CalendarThirdData("낙성대 공원, 공원 관악구"))
+        dataList3.add(CalendarThirdData("호텔 카푸치노, 호텔 강남"))
     }
 
     private fun initData2() {
-        dataList2.add(CalendarSecondData("13:00 리요리요 커피"))
-        dataList2.add(CalendarSecondData("18:00 귀가"))
+        dataList2.add(CalendarSecondData("에롤파, 카페 성수동"))
+        dataList2.add(CalendarSecondData("노스트레스버거, 식당 용산구"))
     }
 
     private fun initRecyclerView2() {
