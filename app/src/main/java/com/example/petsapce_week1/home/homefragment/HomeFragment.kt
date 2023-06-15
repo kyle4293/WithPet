@@ -191,6 +191,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 )
                 when (spinner.getItemAtPosition(position)) {
                     "최근등록순" -> {
+                        dataList.clear()
+                        dataList.addAll(originalDataList)
+                        adapter.notifyDataSetChanged()
 
                     }
 
