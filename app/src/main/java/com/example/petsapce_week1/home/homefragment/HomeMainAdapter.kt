@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.accommodation.AccMainActivity
@@ -16,12 +14,14 @@ import com.example.petsapce_week1.databinding.HomeMainRowBinding
 class HomeMainAdapter(var items: ArrayList<HomeMainData>) :
     RecyclerView.Adapter<HomeMainAdapter.ViewHolder>() {
 
+    val sortPriceDesc = "PRICE_ASC"
+    val sortPriceAsc = "PRICE_DESC"
+
 
     interface OnItemClickListener {
         fun OnItemClick(data: HomeMainData)
 //        fun onClick(v: View, position: Int)
     }
-
 
     //평점 오름 차순 정렬
     @SuppressLint("NotifyDataSetChanged")
