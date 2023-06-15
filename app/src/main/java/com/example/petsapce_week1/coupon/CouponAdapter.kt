@@ -1,6 +1,7 @@
 package com.example.petsapce_week1
 
 import android.content.Intent
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -23,6 +24,8 @@ class CouponAdapter(var items: ArrayList<CouponData>):
                 couponName.text = data.name
                 couponPlace.text = data.location
                 couponDetail.text = data.detail
+                couponOriginPrice.text = "정가 " + data.priceOrigin.toString()+"원"
+                couponOriginPrice.paintFlags = couponOriginPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                 couponPrice.text = "할인가 " + data.price.toString()+"원"
                 couponDayleft.text = "D-" + data.dayLeft
 

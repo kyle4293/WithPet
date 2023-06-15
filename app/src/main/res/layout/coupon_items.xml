@@ -3,94 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coupon_item"
-    android:background="@drawable/coupon_img"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="10dp"
-    android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginTop="15dp"
-    android:layout_marginBottom="15dp">
+    android:layout_marginTop="15dp">
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="145dp"
+        android:layout_height="180dp"
         tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/couponImg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/coupondummyimg"
-            android:background="@drawable/coupon_img"
-            android:clipToOutline="true"
-            android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="12.5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/couponPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="카페"
-            android:textColor="@color/textForBlue"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_marginStart="12.5dp"
-            android:layout_marginTop="12.5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/couponImg"/>
-
-        <TextView
-            android:id="@+id/couponName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12.5dp"
-            android:layout_marginTop="10dp"
-            android:text="댕댕냥냥 부천점"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/couponPlace"
-            app:layout_constraintStart_toEndOf="@+id/couponImg" />
-
-        <TextView
-            android:id="@+id/couponDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12.5dp"
-            android:text="반려견과 동반 입장이 가능한 \n반려동물 카페"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/couponName"
-            app:layout_constraintStart_toEndOf="@+id/couponImg" />
-
-        <TextView
-            android:id="@+id/couponPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12.5dp"
-            android:text="할인가 25,000원"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/couponDetail"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/couponImg" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/couponImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/item5"
+            android:background="@drawable/coupon_img"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangleblur"
+            android:clipToOutline="true"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp">
+            <TextView
+                android:id="@+id/couponPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="용산, 식당"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginStart="12.5dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/couponName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12.5dp"
+                android:layout_marginTop="10dp"
+                android:text="댕댕냥냥 부천점"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/couponPlace"/>
+
+            <TextView
+                android:id="@+id/couponDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12.5dp"
+                android:text="반려견과 동반 입장이 가능한 \n반려동물 카페"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/couponName" />
+
+            <TextView
+                android:id="@+id/couponOriginPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12.5dp"
+                android:text="정가 25,000원"
+                android:textColor="@color/btn_notTouch"
+                android:textSize="13sp"
+                android:textStyle=""
+                app:layout_constraintTop_toBottomOf="@+id/couponDetail"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/couponPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12.5dp"
+                android:text="할인가 25,000원"
+                android:textColor="@color/lemonYellow"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/couponDetail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/couponOriginPrice" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:background="@drawable/coupon_dday"
             app:layout_constraintEnd_toEndOf="parent">
             <TextView
                 android:id="@+id/coupon_dayleft"
-                android:layout_width="30dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:gravity= "center"
                 android:rotation="270"
                 android:text="D-3"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
