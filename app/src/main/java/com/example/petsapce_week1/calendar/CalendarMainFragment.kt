@@ -83,14 +83,15 @@ class CalendarMainFragment : Fragment() {
 
 
     private fun initData3() {
-        for (i in 0 until 3)
-            dataList3.add(CalendarThirdData( "09:00 댕댕냥냥"))
+        dataList3.add(CalendarThirdData("09:00 댕댕냥냥"))
+        dataList3.add(CalendarThirdData("12:00 노스트레스 버거"))
+        dataList3.add(CalendarThirdData("16:00 낙성대 공원"))
+        dataList3.add(CalendarThirdData("22:00 신라 호텔"))
     }
 
     private fun initData2() {
-        for (i in 0 until 30)
-            dataList2.add(CalendarSecondData( "13:00 리요리요 커피"))
-
+        dataList2.add(CalendarSecondData("13:00 리요리요 커피"))
+        dataList2.add(CalendarSecondData("18:00 귀가"))
     }
 
     private fun initRecyclerView2() {
@@ -153,7 +154,7 @@ class CalendarMainFragment : Fragment() {
         binding.recyclerview.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.HORIZONTAL, false
         )
-        adapter = CalendarMainAdapter(dataList,binding)
+        adapter = CalendarMainAdapter(dataList, binding)
         binding.recyclerview.adapter = adapter
 
 
