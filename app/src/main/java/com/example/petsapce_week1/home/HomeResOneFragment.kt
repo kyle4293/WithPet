@@ -61,13 +61,13 @@ class HomeResOneFragment : Fragment(), View.OnClickListener {
 
             }
             binding.b4.id -> {
-                viewModel.plusValue("미용")
+                viewModel.plusValue("쇼핑몰")
             }
             binding.b5.id -> {
                 viewModel.plusValue("병원")
             }
             binding.b6.id -> {
-                viewModel.plusValue("숙박")
+                viewModel.plusValue("호텔")
             }
         }
     }

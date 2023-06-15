@@ -71,11 +71,18 @@ class Home2Activity : AppCompatActivity() {
 
         val homDatalist = home.getOriginalDataList()
         dataList.addAll(homDatalist)
-        originList.addAll(homDatalist)
+//        originList.addAll(homDatalist)
 
         searchText = intent.getStringExtra("searchText").toString().trim()
         binding.textChange.text = searchText
-        filterText(searchText)
+
+        val text = dataList.filter { it.location.contains(searchText) || it.name.contains(searchText)}
+        dataList.clear()
+        dataList.addAll(text)
+        originList.addAll(text)
+//        adapter.notifyDataSetChanged()
+
+//        filterText(searchText)
 
 
     }
@@ -83,7 +90,7 @@ class Home2Activity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun filterText(query: String) {
 
-        val text = originList.filter { it.location.contains(query) }
+        val text = originList.filter { it.location.contains(query) || it.name.contains(query)}
         dataList.clear()
         dataList.addAll(text)
         adapter.notifyDataSetChanged()
@@ -144,7 +151,7 @@ class Home2Activity : AppCompatActivity() {
     private fun initButtonSort() {
         binding.apply {
             b1.setOnClickListener {
-                filterText("전체")
+                filterText("")
             }
             b2.setOnClickListener {
                 filterText("카페")

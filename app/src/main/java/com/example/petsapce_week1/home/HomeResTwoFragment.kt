@@ -37,7 +37,7 @@ class HomeResTwoFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.b1.id -> {
-                viewModel.plusValue("훈련장")
+                viewModel.plusValue("미용")
 //                viewModel.setText("서울")
 
             }
