@@ -77,6 +77,13 @@ class Home2Activity : AppCompatActivity() {
         binding.textChange.text = searchText
 
         val text = dataList.filter { it.location.contains(searchText) || it.name.contains(searchText)}
+        if (text.isEmpty()){
+            binding.recyclerviewMain.visibility = View.GONE
+            binding.sorrydog.visibility = View.VISIBLE
+        }else{
+            binding.recyclerviewMain.visibility = View.VISIBLE
+            binding.sorrydog.visibility = View.GONE
+        }
         dataList.clear()
         dataList.addAll(text)
         originList.addAll(text)
@@ -91,6 +98,13 @@ class Home2Activity : AppCompatActivity() {
     private fun filterText(query: String) {
 
         val text = originList.filter { it.location.contains(query) || it.name.contains(query)}
+        if (text.isEmpty()){
+            binding.recyclerviewMain.visibility = View.GONE
+            binding.sorrydog.visibility = View.VISIBLE
+        }else{
+            binding.recyclerviewMain.visibility = View.VISIBLE
+            binding.sorrydog.visibility = View.GONE
+        }
         dataList.clear()
         dataList.addAll(text)
         adapter.notifyDataSetChanged()
