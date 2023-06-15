@@ -323,6 +323,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         dataList.add(HomeMainData(R.drawable.item6, "아이딜", "행운동, 카페", 3.25,4000))
         dataList.add(HomeMainData(R.drawable.item7, "휴먼 앤 펫", "구래, 공방", 3.25,80000))
 
+
+
         originalDataList.addAll(dataList)
     }
 

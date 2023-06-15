@@ -56,40 +56,12 @@ class Home2MainAdapter(var items: ArrayList<HomeMainData>) :
     }
 
 
-    fun filterAndSortByText(query: String, sortOrder: String) {
-        val filteredList = items.filter { it.name.contains(query) }
-        val sortedList = when (sortOrder) {
-            "PRICE_ASC" -> filteredList.sortedBy { it.score }
-            "PRICE_DESC" -> filteredList.sortedByDescending { it.score }
-            else -> {
-                filteredList
-            }
-        }
-        items.clear()
-        items.addAll(sortedList)
-        notifyDataSetChanged()
-    }
-
 
     var itemClickListener: OnItemClickListener? = null //초기값 null값
 
 
     inner class ViewHolder(val binding: HomeMainRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-
-        //        private val childRecyclerView: RecyclerView = binding.childRecyclerView
-//        private val childViewPager: ViewPager = binding.childViewPager
-
-        init {
-            /* childRecyclerView.layoutManager = LinearLayoutManager(
-              itemView.context,
-              LinearLayoutManager.HORIZONTAL,
-              false
-          )*/
-
-
-        }
 
         @SuppressLint("SetTextI18n")
         fun bind(data: HomeMainData) {
@@ -106,7 +78,6 @@ class Home2MainAdapter(var items: ArrayList<HomeMainData>) :
 
             }
 
-
         }
 
     }
@@ -120,19 +91,6 @@ class Home2MainAdapter(var items: ArrayList<HomeMainData>) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        //child recyclerview
-//        holder.binding.childRecyclerView.adapter = HomeChildAdapter(items[position].imgList)
-
-        /*   val restadapter = HomeChildAdapter(items[position].imgList)
-           holder.binding.childViewPager.adapter = restadapter
-
-           holder.binding.childViewPager.adapter = HomeChildAdapter(items[position].imgList)*/
-
-        /*   val springDotsIndicator = holder.binding.dotsIndicator
-           val viewPager = holder.binding.childViewPager
-           val adapter = HomeChildAdapter(items[position].imgList)
-           viewPager.adapter = adapter
-           springDotsIndicator.attachTo(viewPager)*/
         val img = items[position].imgList
         val name = items[position].name
         val location = items[position].location
@@ -153,31 +111,6 @@ class Home2MainAdapter(var items: ArrayList<HomeMainData>) :
 //            Log.d("content", roomIDNext.toString())
         }
 
-        /*val item = items[position]
-        val intent = Intent(holder.itemView.context, AccMainActivity::class.java).apply {
-            putExtra("img", item.imgList)
-            putExtra("name", item.name)
-            putExtra("location", item.location)
-            putExtra("score", item.score)
-        }
-        ContextCompat.startActivity(holder.itemView.context, intent, null)*/
-
-
-
-//        holder.childViewPager.adapter = HomeChildViewPagerAdapter(items[position].imgList)
-//        holder.binding.childViewPager.visibility = View.VISIBLE
-        holder.binding.apply {
-
-
-            //이미지는 이런식으로 담아야함.
-//            imgMain.setImageResource(items[position].img)
-            /*  textLoc.text = items[position].location
-              textScore.text = items[position].score.toString()
-              textDate.text = items[position].date.toString()
-              textPrice.text = "₩" + items[position].price.toString() + " / 박"*/
-//            textViewDifficulty.text= "난이도 ${position+1}"
-
-        }
         holder.bind(items[position])
 
 
@@ -187,13 +120,6 @@ class Home2MainAdapter(var items: ArrayList<HomeMainData>) :
     override fun getItemCount(): Int {
         return items.size
     }
-
-    /* fun updateItems(newItems: HomeResponse) {
-         items.clear()
-         items.addAll(newItems)
-         notifyDataSetChanged()
-     }*/
-
 
 }
 
