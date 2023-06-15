@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="영문, 숫자, 특수문자 포함 8자 이상을 입력해주세요."
-            android:textColor="#40A196"
+            android:textColor="@color/textForGray"
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -220,7 +220,7 @@
                 android:paddingEnd="20dp"
                 android:text="회원가입"
                 android:textAllCaps="false"
-                android:textColor="#EEF5F5"
+                android:textColor="@color/textForBlack"
                 android:textSize="16sp"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
