@@ -25,6 +25,7 @@ import com.example.petsapce_week1.vo.FacilityData
 import com.example.petsapce_week1.vo.ReservationCreateResponse
 import com.example.petsapce_week1.vo.ReservationUserData
 import com.example.petsapce_week1.vo.accomo_datamodel.AccomodationData
+import kotlinx.android.synthetic.main.activity_acc_main.*
 import kotlinx.android.synthetic.main.host_item_list.location
 import retrofit2.Call
 import retrofit2.Callback
@@ -118,64 +119,73 @@ class AccMainActivity : AppCompatActivity() {
 
                         //============ 좋아요 버튼 ==========
                         // like btn
-                        var if1Checked = 0
-                        if (response.body()!!.result.favorite) {
-                            if1Checked = 1
-                            binding.btnHeartAfter.visibility = View.VISIBLE
-                        } else {
-                            if1Checked = 0
-                            binding.btnHeartAfter.visibility = View.INVISIBLE
-                        }
+                        var heartCheck = false
+//                        if (response.body()!!.result.favorite) {
+//                            if1Checked = 1
+//                            binding.btnHeartAfter.visibility = View.VISIBLE
+//                        } else {
+//                            if1Checked = 0
+//                            binding.btnHeartAfter.visibility = View.INVISIBLE
+//                        }
 
                         binding.btnHeartBefore.setOnClickListener {
                             //if 로그인 정보 없으면, 로그인 화면으로 화면 이동
                             //있으면 밑에 if 문 돌리면 될듯
 
-                            if (if1Checked == 0) {
-                                binding.btnHeartAfter.visibility = View.VISIBLE
-                                if1Checked = 1
-                                // 상진쓰랑 할것
-                                api.postLikes(accessTokenPost, roomBeforeID.toLong())
-                                    .enqueue(object : Callback<AccomodationData> {
-                                        override fun onResponse(
-                                            call: Call<AccomodationData>,
-                                            response: Response<AccomodationData>
-                                        ) {
-                                            Log.d("숙소 좋아요 표시", "했음")
-                                        }
-
-                                        override fun onFailure(
-                                            call: Call<AccomodationData>,
-                                            t: Throwable
-                                        ) {
-                                            Log.d("숙소 좋아요 표시", "x했음")
-                                        }
-
-                                    })
+//                            if (if1Checked == 0) {
+//                                binding.btnHeartAfter.visibility = View.VISIBLE
+//                                if1Checked = 1
+//                                // 상진쓰랑 할것
+//                                api.postLikes(accessTokenPost, roomBeforeID.toLong())
+//                                    .enqueue(object : Callback<AccomodationData> {
+//                                        override fun onResponse(
+//                                            call: Call<AccomodationData>,
+//                                            response: Response<AccomodationData>
+//                                        ) {
+//                                            Log.d("숙소 좋아요 표시", "했음")
+//                                        }
+//
+//                                        override fun onFailure(
+//                                            call: Call<AccomodationData>,
+//                                            t: Throwable
+//                                        ) {
+//                                            Log.d("숙소 좋아요 표시", "x했음")
+//                                        }
+//
+//                                    })
+//                            }
+//                        }
+                        binding.btnHeartBefore.setOnClickListener {
+                            if(!heartCheck){
+                                btn_heart_before.setImageResource(R.drawable.heartfull)
+                                heartCheck = true
+                                Toast.makeText(this@AccMainActivity,"찜 리스트에 추가되었습니다.", Toast.LENGTH_SHORT).show()
                             }
-                        }
-                        binding.btnHeartAfter.setOnClickListener {
-                            if (if1Checked == 1) {
-                                binding.btnHeartAfter.visibility = View.INVISIBLE
-                                if1Checked = 0
-                                // 상진쓰랑 할것
-                                api.postLikes(accessTokenPost, roomBeforeID.toLong())
-                                    .enqueue(object : Callback<AccomodationData> {
-                                        override fun onResponse(
-                                            call: Call<AccomodationData>,
-                                            response: Response<AccomodationData>
-                                        ) {
-                                            Log.d("숙소 좋아요 표시", "했음")
-                                        }
-
-                                        override fun onFailure(
-                                            call: Call<AccomodationData>,
-                                            t: Throwable
-                                        ) {
-                                            Log.d("숙소 좋아요 표시", "x했음")
-                                        }
-
-                                    })
+                            else{
+                                btn_heart_before.setImageResource(R.drawable.heart3)
+                                heartCheck = false
+                                Toast.makeText(this@AccMainActivity,"찜 리스트에서 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                            }
+//                            if (if1Checked == 1) {
+//                                if1Checked = 0
+//                                // 상진쓰랑 할것
+//                                api.postLikes(accessTokenPost, roomBeforeID.toLong())
+//                                    .enqueue(object : Callback<AccomodationData> {
+//                                        override fun onResponse(
+//                                            call: Call<AccomodationData>,
+//                                            response: Response<AccomodationData>
+//                                        ) {
+//                                            Log.d("숙소 좋아요 표시", "했음")
+//                                        }
+//
+//                                        override fun onFailure(
+//                                            call: Call<AccomodationData>,
+//                                            t: Throwable
+//                                        ) {
+//                                            Log.d("숙소 좋아요 표시", "x했음")
+//                                        }
+//
+//                                    })
                             }
                         }
                         // ================ 맨 위 프레임 ==================
@@ -189,10 +199,14 @@ class AccMainActivity : AppCompatActivity() {
                         imgUrlAdapter.notifyDataSetChanged()
 
                         // ================= frame host 호스트 ===================
-                        binding.frameHost.textName.text = body.result.hostName
-                        binding.frameHost.tvMaxpet.text = "· 최대 반려동물 ${body.result.maxPet}마리"
-                        binding.frameHost.tvMaxguest.text = "최대 인원 ${body.result.maxGuest}명 "
-                        binding.frameHost.textAbout.text = body.result.roomDecription
+                        binding.frameHost.textName.text = "erlopa"
+                        binding.frameHost.tvMaxpet.text = "· 최대 반려동물 4마리"
+                        binding.frameHost.tvMaxguest.text = "최대 인원 6명 "
+                        val hostDescription = "성수동에 위치한 카페입니다. 1층 카페 공간에 편집샵과 북스토어가 함께 있습니다. " +
+                                "모든 메뉴 및 케이터링, 대관 예약은 최소 7일전 미리 연락 주시면 됩니다. " +
+                                "50% 예약금을 받고 있으니 이점 참고 부탁 드리며 전화나 인스타그램 DM으로도 예약 가능합니다. " +
+                                "합리적인 가격으로 우수한 품질의 토스트와 커피 및 음료 등을 즐길 수 있습니다."
+                        binding.frameHost.textAbout.text = hostDescription
 
                     }
                     // ================ facility 편의시설 프레임 =====================
@@ -225,30 +239,29 @@ class AccMainActivity : AppCompatActivity() {
                     if (reviewList.isNotEmpty()) {
                         Log.d("숙소 facility 리스트", "${reviewList}")
                         //binding.frameFacility.tvFac0.text = reviewList[0].facname
-                        binding.frameFacility.tvFac1.text = reviewList[0].facname
+                        binding.frameFacility.tvFac1.text = "무선 인터넷"
                         Glide.with(this@AccMainActivity)
-                            .load(reviewList[0].imgUrl)
+                            .load(R.drawable.facultywifi)
                             .into(binding.frameFacility.imgFac1)
-                        binding.frameFacility.tvFac2.text = reviewList[1].facname
+                        binding.frameFacility.tvFac2.text = "테이크 아웃 가능"
                         Glide.with(this@AccMainActivity)
-                            .load(reviewList[1].imgUrl)
+                            .load(R.drawable.facultytakeout)
                             .into(binding.frameFacility.imgFac2)
-                        binding.frameFacility.tvFac3.text = reviewList[2].facname
+                        binding.frameFacility.tvFac3.text = "유료 주차"
                         Glide.with(this@AccMainActivity)
-                            .load(reviewList[2].imgUrl)
+                            .load(R.drawable.facultyparking)
                             .into(binding.frameFacility.imgFac3)
-                        binding.frameFacility.tvFac4.text = reviewList[3].facname
+                        binding.frameFacility.tvFac4.text = "비건 메뉴"
                         Glide.with(this@AccMainActivity)
-                            .load(reviewList[3].imgUrl)
+                            .load(R.drawable.facultyleaf)
                             .into(binding.frameFacility.imgFac4)
-                        binding.frameFacility.tvFac5.text = reviewList[4].facname
+                        binding.frameFacility.tvFac5.text = "남/녀 구분화장실"
                         Glide.with(this@AccMainActivity)
-                            .load(reviewList[4].imgUrl)
+                            .load(R.drawable.facultytoliet)
                             .into(binding.frameFacility.imgFac5)
-                        binding.frameFacility.tvFac6.text = reviewList[5].facname
-                        Glide.with(this@AccMainActivity)
-                            .load(reviewList[5].imgUrl)
-                            .into(binding.frameFacility.imgFac6)
+
+                        binding.frameFacility.imgFac6.visibility = View.INVISIBLE
+                        binding.frameFacility.tvFac6.visibility = View.INVISIBLE
                     }
 
                 }
@@ -276,26 +289,28 @@ class AccMainActivity : AppCompatActivity() {
         // ============== 예약 하기 버튼 ==============
 
         binding.btnReserve.setOnClickListener {
-            var apiReservation: ReservationAPI = retrofit.create(ReservationAPI::class.java)
-            apiReservation.postReservation(
-                accessTokenPost,
-                jsonParams = ReservationUserData(2, 1, "2023-02-20", "2023-02-21"),
-                1
-            ).enqueue(object : Callback<ReservationCreateResponse> {
-                override fun onResponse(
-                    call: Call<ReservationCreateResponse>,
-                    response: Response<ReservationCreateResponse>
-                ) {
-                    Log.d("예약 생성 통신 성공", response.toString())
-                    Log.d("예약 생성 통신 성공", response.body().toString())
-                    Toast.makeText(this@AccMainActivity, "예약 완료되었습니다.", Toast.LENGTH_LONG).show()
-                }
+            Toast.makeText(this@AccMainActivity,"일정에 추가되었습니다.", Toast.LENGTH_SHORT).show()
 
-                override fun onFailure(call: Call<ReservationCreateResponse>, t: Throwable) {
-                    Log.d("예약 생성 통신 실패", t.toString())
-                }
-
-            })
+//            var apiReservation: ReservationAPI = retrofit.create(ReservationAPI::class.java)
+//            apiReservation.postReservation(
+//                accessTokenPost,
+//                jsonParams = ReservationUserData(2, 1, "2023-02-20", "2023-02-21"),
+//                1
+//            ).enqueue(object : Callback<ReservationCreateResponse> {
+//                override fun onResponse(
+//                    call: Call<ReservationCreateResponse>,
+//                    response: Response<ReservationCreateResponse>
+//                ) {
+//                    Log.d("예약 생성 통신 성공", response.toString())
+//                    Log.d("예약 생성 통신 성공", response.body().toString())
+//                    Toast.makeText(this@AccMainActivity, "예약 완료되었습니다.", Toast.LENGTH_LONG).show()
+//                }
+//
+//                override fun onFailure(call: Call<ReservationCreateResponse>, t: Throwable) {
+//                    Log.d("예약 생성 통신 실패", t.toString())
+//                }
+//
+//            })
         }
     }
 
@@ -314,24 +329,12 @@ class AccMainActivity : AppCompatActivity() {
             textAddress.text = location
             textStarscore.text = score.toString()
         }
-
-
-//        intentList.add(img.toString())
-        /*intentList.add(name.toString())
-        intentList.add(location.toString())
-        intentList.add(score.toString())*/
-//        return intentList
     }
 
     private fun initData() {
-        imgdataList.add(imageSlideData(R.drawable.home2))
-        imgdataList.add(imageSlideData(R.drawable.map))
-        imgdataList.add(imageSlideData(R.drawable.home2))
-        imgdataList.add(imageSlideData(R.drawable.map))
-        imgdataList.add(imageSlideData(R.drawable.home2))
-        imgdataList.add(imageSlideData(R.drawable.map))
-        imgdataList.add(imageSlideData(R.drawable.home2))
-        imgdataList.add(imageSlideData(R.drawable.map))
+        imgdataList.add(imageSlideData(R.drawable.item10))
+        imgdataList.add(imageSlideData(R.drawable.item11))
+        imgdataList.add(imageSlideData(R.drawable.item12))
     }
 
     private fun initViewPager() {

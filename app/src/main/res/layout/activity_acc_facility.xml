@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua"
-        android:text="숙소 편의시설"
+        android:text="편의시설"
         android:textColor="@color/textForBlack"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"

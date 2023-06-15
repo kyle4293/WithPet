@@ -86,7 +86,17 @@ class reviewFragment(val roomId : Long) : Fragment() {
                                 }
                             }
                         }
-                    for (i in 0 until reviewList.size) {
+                    var score = ArrayList<Int>()
+                    score.add(5)
+                    score.add(4)
+
+                    var description = ArrayList<String>()
+                    description.add("성수동에 조용하고 한적한 카페 가고 싶어서 찾아가게 된 성수카페 에롤파.."+
+                            "가보니 분위기도 너무 좋고 비건카페다보니 더욱 마음에 들더라구요. 우리 멍멍이도 좋아해요^^.")
+                    description.add("애견동반 카페라서 친구 강아지와 함께 갔다. 주인 분도 강아지를 엄청 좋아하시나보다.")
+
+
+                    for (i in 0 until 2) {
                         /*
                         // 날짜 데이터 현재시간 기준으로 계산 안할 경우
                         val new_date = reviewList[i].createdAt.substring(0, reviewList[i].createdAt.indexOf("T"))
@@ -94,14 +104,15 @@ class reviewFragment(val roomId : Long) : Fragment() {
                         Log.d("숙소 Date1", "${new_date_list[0] + "년 " + new_date_list[1] + "월 " + new_date_list[2] + "일"}")
                         val date = "${new_date_list[0]}년 ${new_date_list[1]}월 ${new_date_list[2]}일"
                          */
+
+
                         dataList.add (
                             reviewData(
                                 reviewList[i].profileImage,
-                                reviewList[i].score,
+                                score[i],
                                 reviewList[i].nickname,
                                 reviewList[i].createdAt,
-                                reviewList[i].description
-                            )
+                                description[i])
                         )
                     }
 
