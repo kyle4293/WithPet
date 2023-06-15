@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.databinding.ActivityHome2Binding
+import com.example.petsapce_week1.home.homefragment.HomeFragment
+import com.example.petsapce_week1.home.homefragment.HomeMainData
 import com.example.petsapce_week1.home.homefragment.SortViewModel
 import com.example.petsapce_week1.network.RetrofitHelperHome
 import com.example.petsapce_week1.network.homeAPI
@@ -56,7 +58,8 @@ class Home2Activity : AppCompatActivity() {
 
     //child apdater
 
-    var dataList = ArrayList<Home2MainData>()
+    var dataList = ArrayList<HomeMainData>()
+    var originList = ArrayList<HomeMainData>()
     lateinit var spinner: Spinner
     lateinit var roomId: String
 
@@ -72,6 +75,8 @@ class Home2Activity : AppCompatActivity() {
     var people = adult+child
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHome2Binding.inflate(layoutInflater)
@@ -79,12 +84,12 @@ class Home2Activity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(SortViewModel::class.java)
 
         //검색결과 : 최근등록순으로 정렬
+        initRecyclerView()
         initFirst()
         //스피너 초기화
         initSpinner()
         //버튼 초기화
         initButtonSort()
-        initRecyclerView()
         //이전으로
         initBefore()
 
@@ -93,6 +98,25 @@ class Home2Activity : AppCompatActivity() {
 
 
     private fun initFirst() {
+
+        val home = HomeFragment()
+        home.initData()
+        val origindata = home.originalDataList
+        Log.d("printsize1",origindata.size.toString())
+
+
+        val homDatalist = home.getOriginalDataList()
+        dataList.addAll(homDatalist)
+        originList.addAll(homDatalist)
+        /*print(homDatalist)
+        Log.d("printsize",homDatalist.size.toString())
+        for (i in homDatalist.indices){
+            Log.d("print", i.toString())
+        }*/
+       /* for (i in homDatalist) {
+            print(homDatalist.)
+        }*/
+
          searchText = intent.getStringExtra("searchText").toString().trim()
         /*if (searchText == " "){
             searchText = ""
@@ -111,10 +135,21 @@ class Home2Activity : AppCompatActivity() {
         Log.d("tag5", animal.toString())
 
         binding.textChange.text = searchText
-        updateTripple(0,spinnerCheck,buttonCheck,startDay,endDay,searchText,people,animal)
+        filterText(searchText)
+//        updateTripple(0,spinnerCheck,buttonCheck,startDay,endDay,searchText,people,animal)
 
 
     }
+
+    private fun filterText(query: String) {
+
+        val text = originList.filter { it.location.contains(query) }
+        dataList.clear()
+        dataList.addAll(text)
+//        adapter.items = dataList
+        adapter.notifyDataSetChanged()
+    }
+
 
     private fun initSpinner() {
         spinner = binding.spinner
@@ -210,8 +245,8 @@ class Home2Activity : AppCompatActivity() {
                     call: Call<Home2Response>,
                     response: Response<Home2Response>
                 ) {
-                    binding.recyclerviewMain.visibility = View.VISIBLE
-                    binding.sorrydog.visibility = View.GONE
+                  /*  binding.recyclerviewMain.visibility = View.VISIBLE
+                    binding.sorrydog.visibility = View.GONE*/
                     val usersSort = response.body()
 
                     if (usersSort != null && usersSort.result != null) {
@@ -236,7 +271,7 @@ class Home2Activity : AppCompatActivity() {
 
                             }
 
-                            dataList.add(
+                           /* dataList.add(
                                 Home2MainData(
                                     childataList,
                                     usersSort.result[i].averageReviewScore,
@@ -248,16 +283,16 @@ class Home2Activity : AppCompatActivity() {
 
                                 )
 
-                            )
+                            )*/
                         }
 
-                        adapter.items = dataList
-                        adapter.notifyDataSetChanged()
+                       /* adapter.items = dataList
+                        adapter.notifyDataSetChanged()*/
 
 
                     } else {
-                        binding.recyclerviewMain.visibility = View.GONE
-                        binding.sorrydog.visibility = View.VISIBLE
+                    /*    binding.recyclerviewMain.visibility = View.GONE
+                        binding.sorrydog.visibility = View.VISIBLE*/
                         Log.d("PRICE_DESCgggg", response.code().toString())
 
                     }

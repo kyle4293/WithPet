@@ -66,7 +66,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     var dataList = ArrayList<HomeMainData>()
 
-    val originalList = ArrayList<HomeMainData>()
     val originalDataList = ArrayList<HomeMainData>()
     lateinit var adapter: HomeMainAdapter
     lateinit var spinner: Spinner
@@ -84,6 +83,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         //데이터
         initData()
+        getOriginalDataList()
         //버튼정렬
         initButton()
         //스피너정렬
@@ -310,13 +310,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
 
-    private fun initData() {
+    fun initData() {
         dataList.add(HomeMainData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50, 10000))
         dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50,30000))
         dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50,40000))
         dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25,10000))
 
         originalDataList.addAll(dataList)
+    }
+
+    fun getOriginalDataList(): List<HomeMainData> {
+        return originalDataList
     }
 
 
