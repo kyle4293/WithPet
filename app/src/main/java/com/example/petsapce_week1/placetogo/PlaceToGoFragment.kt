@@ -61,9 +61,10 @@ class PlaceToGoFragment : Fragment() {
         return binding.root
     }
 
+
     private fun initData(name: String?) {
         //row data add.
-        dataList.add(ToGoData(R.drawable.item4, "낙성대공원", "관악, 공원", 3.25))
+        dataList.add(ToGoData(R.drawable.item11, "에롤파", "카페, 성수동", 4.50))
         binding.textHostname.text = name + "님의 찜 목록"
     }
     private fun initRecyclerView(){

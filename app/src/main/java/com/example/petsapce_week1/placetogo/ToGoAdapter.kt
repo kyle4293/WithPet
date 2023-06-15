@@ -17,6 +17,7 @@ RecyclerView.Adapter<ToGoAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: TogoRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+
         fun bind(data: ToGoData) {
             val cut = String.format("%.2f", data.score)
             binding.apply {
@@ -42,10 +43,16 @@ RecyclerView.Adapter<ToGoAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView?.context, AccMainActivity::class.java)
-//            intent.putExtra("content", roomIDNext)
+
+            val intent = Intent(holder.itemView.context, AccMainActivity::class.java)
+
+            intent.putExtra("img", items[position].imgList)
+            intent.putExtra("name", items[position].name)
+            intent.putExtra("location", items[position].location)
+            intent.putExtra("score", items[position].score)
+            intent.putExtra("price", 7000)
+//            intent.putParcelableArrayListExtra("score", homeMainData)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
-//            Log.d("content", roomIDNext.toString())
         }
 
         holder.binding.apply {
