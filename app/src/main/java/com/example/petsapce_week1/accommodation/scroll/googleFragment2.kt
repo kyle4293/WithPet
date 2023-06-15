@@ -32,7 +32,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import kotlin.properties.Delegates
 
-class googleFragment(val roomId: Long) : Fragment(), OnMapReadyCallback {
+class googleFragment2(val roomId: Long) : Fragment(), OnMapReadyCallback {
 
     private lateinit var viewModel: GoogleViewModel
     private lateinit var viewBinding: FragmentGoogleBinding
@@ -57,41 +57,10 @@ class googleFragment(val roomId: Long) : Fragment(), OnMapReadyCallback {
         //activity의 setcontentview가 아닌 return값을 주면된다.
 
 
-        /*api.getRoomDetail(accessToken = accessTokenPost, roomId = roomId)
-            .enqueue(object : Callback<AccomodationData> {
-                @SuppressLint("SetTextI18n")
-                override fun onResponse(
-                    call: Call<AccomodationData>,
-                    response: Response<AccomodationData>
-                ) {
-                    Log.d("숙소 세부 정보 google 통신 성공", response.toString())
-                    Log.d("숙소 세부 정보 google 통신 성공", response.body().toString())
-                    val body = response.body()
-                    if (body != null) {
-                        //binding.frameHost.textName.text = body.result.hostName
-                        viewBinding.textAddress.text = "서울특별시 성동구 둘레7길 15 cafe erolpa 1층"
-                        viewBinding.houseName.text = "에롤파"
-                        latitude = 37.538062
-                        longitude = 127.049047
-
-                        Log.d("latitude", "${latitude}")
-                        Log.d("longitude", "${longitude}")
-
-                        if (body.isSuccess) {
-                            naverMap?.let { onMapReady(it) }
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<AccomodationData>, t: Throwable) {
-                    Log.d("숙소 세부 정보 google 통신 실패", "ㅠㅠ")
-                }
-            })*/
-
-        viewBinding.textAddress.text = "서울특별시 성동구 둘레7길 15 cafe erolpa 1층"
-        viewBinding.houseName.text = "에롤파"
-        latitude = 37.538062
-        longitude = 127.049047
+        viewBinding.textAddress.text = "서울 용산구 신흥로 62"
+        viewBinding.houseName.text = "노스트레스 버거"
+        latitude = 37.543894
+        longitude = 126.987421
 
         Log.d("latitude", "${latitude}")
         Log.d("longitude", "${longitude}")

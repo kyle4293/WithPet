@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petsapce_week1.accommodation.AccMainActivity
+import com.example.petsapce_week1.accommodation.AccMainActivity2
 import com.example.petsapce_week1.databinding.CouponItemsBinding
 import com.example.petsapce_week1.databinding.TogoRowBinding
 import com.example.petsapce_week1.placetogo.ToGoAdapter
@@ -45,12 +46,28 @@ class CouponAdapter(var items: ArrayList<CouponData>):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val img = items[position].imgList
+        val name = items[position].name
+        val location = items[position].location
+        val originPrice = String.format("%,d", items[position].priceOrigin)
+//        val score = items[position].score
+        val price = String.format("%,d", items[position].price)
+
+
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView?.context, AccMainActivity::class.java)
-//            intent.putExtra("content", roomIDNext)
+            val intent = Intent(holder.itemView.context, AccMainActivity2::class.java)
+
+            intent.putExtra("img", img)
+            intent.putExtra("name", name)
+            intent.putExtra("location", location)
+            intent.putExtra("origin", originPrice)
+            intent.putExtra("price", price)
+//            intent.putParcelableArrayListExtra("score", homeMainData)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
 //            Log.d("content", roomIDNext.toString())
         }
+
         holder.bind(items[position])
     }
 }

@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="김현아"
+            android:text="노스트레스 버거"
             android:textColor="#2662BB"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="· 최대 반려동물 10마리"
+                android:text="· 최대 반려동물 2마리"
                 android:textColor="@color/textForBlack"
                 android:textSize="14sp" />
 
@@ -98,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:lineSpacingExtra="1.3dp"
-            android:text="품고 기관과 있으며, 만물은 곳으로 운다. 사랑의 그들은 같이, 청춘에 서만 되려니와, 방지하는 있는가? 그들을 실현에 유소년에게서 봄바 람이다. 따뜻한 바로 영원히 우리 커다란 그들은 위하여 없으면, 이상 을 봄바람이다. 불어 구하기 같이, 사막이다. 가진 작고 바이며, 약동 하다. 방황하였으며, 위하여서, 천고에 되는 피부가 희망의 봄바람이 다. 있음으로써 동산에는 그들은 남는 그들의 더운지라 그들의 이것이 다. 곳으로 같으며, 자신과 노년에게서 없으면 긴지라 날카로우나 그들을 옷을 황금시대다. 하는 곧 그러므로 뼈 되려니와, 청춘의 행복 스럽고 얼마나 것이다. 주는 가진 놀이 싹이 따뜻한 소금이라 꽃이..."
             android:textColor="@color/textForBlack"
+            android:text="해방촌 경사길에 위치한 ‘노스트레스버거’는 오리지널 미국식 햄버거 가게를 표방합니다. 노란 배경에 검은 글씨로 써진 간판과 메뉴판은 무심한듯하지만 강렬한 존재감을 뽐냅니다. 대표 메뉴는 버터를 발라 구운 번 안에 소고기 패티, 치즈, 잘게 다진 양파, 소스, 피클을 차례대로 올린 ‘CHEESE BURGER’. 일반적인 수제버거와 달리 패티를 얇게 펼쳐 튀기듯이 구워 바삭한 식감과 고소한 맛이 조화롭게 어울립니다. 치즈와 패티가 들어가는 개수에 따라 클래식, 더블, 트리플로 메뉴가 구성되어 있으며 별도로 치즈를 추가할 수 있습니다. 핫윙, 감자튀김, 해쉬브라운 등 곁들이기 좋은 사이드 메뉴도 준비되어 있습니다."
             android:textSize="12sp" />
     </LinearLayout>
 

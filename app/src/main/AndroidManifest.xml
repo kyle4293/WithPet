@@ -140,6 +140,7 @@
             android:name=".review.ReviewPostActivity"
             android:exported="true" />
         <activity android:name=".ProfileMenuActivity"/>
+        <activity android:name=".accommodation.AccMainActivity2"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -59,8 +59,17 @@ class HomeResearchActivity : AppCompatActivity() {
         initDataBinding()
         initReset()
         initNext()
+        initBefore()
 //        showProfileDialog()
 
+    }
+
+    private fun initBefore() {
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 
@@ -182,11 +191,11 @@ class HomeResearchActivity : AppCompatActivity() {
     }
 
 
-/*
-    override fun onChanged(t: String?) {
-//        val text2 = viewModel.minusValue()
-        binding.textWhere.text = viewModel.currentValue.value
-    }*/
+    /*
+        override fun onChanged(t: String?) {
+    //        val text2 = viewModel.minusValue()
+            binding.textWhere.text = viewModel.currentValue.value
+        }*/
 
 
 }
