@@ -132,7 +132,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             binding.b3.id -> {
-                filterText("숙소")
+                filterText("식당")
 
 
                 /*   buttonCheck = btn3Downtown
@@ -147,7 +147,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             binding.b5.id -> {
-                filterText("미용")
+                filterText("호텔")
 
               /*  buttonCheck = btn5Beach
                 updateTripple(page, spinnerCheck, buttonCheck)*/
@@ -195,8 +195,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     }
 
                     "높은가격순" -> {
-                        priceSortDescending()
-//                        adapter.sortDescendingPrice()
+//                        priceSortDescending()
+                        adapter.sortDescendingPrice()
                        /* spinnerCheck = sortPriceDesc
                         filter(
                             buttonCheck,spinnerCheck
@@ -314,7 +314,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         dataList.add(HomeMainData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50, 10000))
         dataList.add(HomeMainData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50,30000))
         dataList.add(HomeMainData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50,40000))
-        dataList.add(HomeMainData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25,10000))
+        dataList.add(HomeMainData(R.drawable.home2, "경주신라호텔", "호텔, 경주", 3.25,10000))
         dataList.add(HomeMainData(R.drawable.item1, "호텔 카푸치노", "강남, 호텔", 4.50,110000))
         dataList.add(HomeMainData(R.drawable.item2, "스타필드 하남", "하남, 쇼핑몰", 4.50,0))
         dataList.add(HomeMainData(R.drawable.item3, "자매의부엌 어스", "신사, 식당", 4.50,25000))
