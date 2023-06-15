@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petsapce_week1.R
 import com.example.petsapce_week1.databinding.FragmentPlaceToGoBinding
+import com.example.petsapce_week1.home.homefragment.HomeMainData
 import com.google.firebase.auth.FirebaseAuth
 
 class PlaceToGoFragment : Fragment() {
@@ -61,11 +62,8 @@ class PlaceToGoFragment : Fragment() {
     }
 
     private fun initData(name: String?) {
-        dataList.add(ToGoData(R.drawable.imgcoffee2, "로우커피스탠드", "카페, 성수동", 4.50))
-        dataList.add(ToGoData(R.drawable.imgcaat4x, "로우커피스탠드2", "카페, 성수동", 4.50))
-        dataList.add(ToGoData(R.drawable.imgforest4x, "로우커피스탠드3", "카페, 성수동", 4.50))
-        dataList.add(ToGoData(R.drawable.home2, "경주 숙소", "숙소, 경주", 3.25))
-
+        //row data add.
+        dataList.add(ToGoData(R.drawable.item4, "낙성대공원", "관악, 공원", 3.25))
         binding.textHostname.text = name + "님의 찜 목록"
     }
     private fun initRecyclerView(){

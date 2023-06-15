@@ -7,6 +7,7 @@ data class CouponData(
     val location: String,
     val name: String,
     val detail: String,
+    val priceOrigin: Int,
     val price: Int,
     val dayLeft: Int
 ): Serializable
