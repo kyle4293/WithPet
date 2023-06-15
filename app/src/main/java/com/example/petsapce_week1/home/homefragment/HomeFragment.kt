@@ -132,22 +132,21 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             binding.b3.id -> {
-                filterText("숙소")
-
+                adapter.filterByText("숙소")
 
                 /*   buttonCheck = btn3Downtown
                    updateTripple(page, spinnerCheck, buttonCheck)*/
             }
 
             binding.b4.id -> {
-                filterText("공원")
+                adapter.filterByText("공원")
 
            /*     buttonCheck = btn4Country
                 updateTripple(page, spinnerCheck, buttonCheck)*/
             }
 
             binding.b5.id -> {
-                filterText("미용")
+                adapter.filterByText("미용")
 
               /*  buttonCheck = btn5Beach
                 updateTripple(page, spinnerCheck, buttonCheck)*/
