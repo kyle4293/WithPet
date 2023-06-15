@@ -53,15 +53,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                <ImageView
-                    android:id="@+id/btn_heart_after"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/heartfull"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -160,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="후기 ---개"
+                    android:text="후기 2개"
                     android:textColor="@color/textForGray"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -244,7 +235,7 @@
             android:id="@+id/text_Price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="W 5000/박"
+            android:text="W 5000"
             android:textColor="@color/textForBlack"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -257,8 +248,8 @@
             android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_small"
-            android:text="예약하기"
-            android:textColor="#EEF5F5"
+            android:text="일정 추가"
+            android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

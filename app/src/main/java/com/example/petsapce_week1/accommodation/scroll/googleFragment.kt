@@ -66,10 +66,10 @@ class googleFragment(val roomId : Long) : Fragment(), OnMapReadyCallback {
                 val body = response.body()
                 if (body != null) {
                     //binding.frameHost.textName.text = body.result.hostName
-                    viewBinding.textAddress.text = body.result.address
-                    viewBinding.houseName.text = body.result.roomName
-                    latitude = body.result.latitude.toDouble()
-                    longitude = body.result.longitude.toDouble()
+                    viewBinding.textAddress.text = "서울특별시 성동구 둘레7길 15 cafe erolpa 1층"
+                    viewBinding.houseName.text = "에롤파"
+                    latitude = 37.538062
+                    longitude = 127.049047
 
                     Log.d("latitude", "${latitude}")
                     Log.d("longitude", "${longitude}")
