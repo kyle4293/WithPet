@@ -2,21 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_acc_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:id="@+id/activity_acc_main"
     app:layout_constraintHorizontal_chainStyle="spread_inside"
     tools:context=".accommodation.AccMainActivity">
 
 
     <ScrollView
-        android:nestedScrollingEnabled="false"
-
         android:id="@+id/acc_scrollview"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/butonBottm"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp"
@@ -63,13 +63,11 @@
                  app:layout_constraintTop_toBottomOf="@id/loginTop" />
  -->
             <androidx.viewpager2.widget.ViewPager2
-                android:nestedScrollingEnabled="false"
-                android:scaleType="fitXY"
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="200sp" />
-
-
+                android:layout_height="200sp"
+                android:nestedScrollingEnabled="false"
+                android:scaleType="fitXY" />
 
 
             <TextView
@@ -82,6 +80,7 @@
                 android:text="디테일한 집 설명"
                 android:textColor="@color/textForBlack"
                 android:textSize="20sp" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -111,6 +110,18 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/img_spot"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3000원"
+                    android:textColor="#2662BB"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -159,6 +170,20 @@
                     app:layout_constraintStart_toEndOf="@+id/text_starscore"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+
+                    android:id="@+id/text_price_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="후기 2개"
+                    android:textColor="@color/textForBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -182,8 +207,8 @@
 
             <include
                 android:id="@+id/frameFacility"
-                android:layout_width="match_parent"
                 layout="@layout/activity_acc_facility"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <View
